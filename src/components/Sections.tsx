@@ -277,69 +277,137 @@ export function TracksSection() {
 }
 
 export function SponsorsSection() {
-  const sponsors = [
-    { name: 'BGA', tier: 'Diamond', icon: '/BGA Logo -  (coloured).PNG', bgClass: '', containerClass: 'w-full h-24 px-2 rounded-none', logoClass: 'w-full h-full' },
-    { name: 'DCAI', tier: 'Platinum', icon: '/DCAI.png', bgClass: 'bg-white p-2' },
-    { name: 'CSS Society', tier: 'Organizer', icon: '/CSSLogo.png', bgClass: 'bg-white/10' },
+  const diamondSponsors = [
+    { name: 'DCAI', icon: '/DCAI.png', bgClass: 'bg-white p-2', url: 'https://dcai.ai/' },
+    { name: 'BGA', icon: '/BGA Logo -  (coloured).PNG', bgClass: '', url: 'https://chainforgood.org/' },
+  ];
+
+  const goldSponsors = [
+    { name: 'HackQuest', icon: '/hackquest-logo.svg', bgClass: '', invert: true, url: 'https://www.hackquest.io/' },
+  ];
+
+  const communitySponsors = [
+    { name: 'SA UNMC', icon: '/sa_logo.png', bgClass: '' },
+    { name: 'School of Computer and Mathematical Sciences', icon: '/unm_logo.png', bgClass: '' },
   ];
 
   return (
     <section id="sponsors" className="py-20 px-4 relative z-10">
-      <div className="max-w-4xl mx-auto">
-        <DLFrameReveal />
-
+      <div className="max-w-5xl mx-auto">
         <motion.h2
-          className="font-pixel text-2xl md:text-4xl text-center mb-4 text-white"
+          className="font-pixel text-2xl md:text-4xl text-center mb-12 text-white"
           {...fadeInUp}
         >
           SPONSORS & PARTNERS
         </motion.h2>
-        <motion.p
-          className="text-center text-[#FF4DA6] font-pixel text-sm mb-12"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          Made possible by
-        </motion.p>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-          {sponsors.map((sponsor, index) => (
-            <motion.div
-              key={sponsor.name}
-              className="card-dark p-8 text-center"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{
-                scale: 1.05,
-                boxShadow: '0 0 30px rgba(255, 77, 166, 0.3)'
-              }}
-            >
-              <div className={`${'containerClass' in sponsor && sponsor.containerClass ? sponsor.containerClass : 'w-20 h-20 rounded-full'} mx-auto mb-4 ${sponsor.bgClass} flex items-center justify-center overflow-hidden`}>
-                {sponsor.icon && (
-                  <img
-                    src={sponsor.icon}
-                    alt={`${sponsor.name} logo`}
-                    className={`${'logoClass' in sponsor && sponsor.logoClass ? sponsor.logoClass : 'w-full h-full'} object-contain`}
-                  />
-                )}
-              </div>
-              <h3 className="font-mono text-white font-bold mb-1">{sponsor.name}</h3>
-              <p className="font-pixel text-xs text-[#FF4DA6]">{sponsor.tier}</p>
-            </motion.div>
-          ))}
-        </div>
+        <DLFrameReveal />
 
+        {/* Diamond Sponsors */}
         <motion.p
-          className="text-center mt-12 font-mono text-white/60"
+          className="font-pixel text-xs text-[#5CE6A0] text-center mb-6 tracking-widest uppercase"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          Interested in sponsoring? <a href="mailto:sponsor@nottshack.com" className="text-[#5CE6A0] hover:underline">Contact us</a>
+          Diamond Sponsors
         </motion.p>
+        <div className="flex flex-wrap justify-center items-center gap-10 max-w-3xl mx-auto mb-14">
+          {diamondSponsors.map((sponsor, index) => (
+            <motion.div
+              key={sponsor.name}
+              className="flex items-center justify-center"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ scale: 1.1 }}
+            >
+              <a href={sponsor.url} target="_blank" rel="noopener noreferrer" className={`h-24 ${sponsor.bgClass} flex items-center justify-center overflow-hidden rounded-lg`}>
+                {sponsor.icon ? (
+                  <img
+                    src={sponsor.icon}
+                    alt={`${sponsor.name} logo`}
+                    className="h-full object-contain"
+                  />
+                ) : (
+                  <span className="font-mono text-white/30 text-sm px-8">{sponsor.name}</span>
+                )}
+              </a>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Gold Sponsors */}
+        <motion.p
+          className="font-pixel text-xs text-[#FFE66D] text-center mb-6 tracking-widest uppercase"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          Gold Sponsors
+        </motion.p>
+        <div className="flex flex-wrap justify-center items-center gap-8 max-w-2xl mx-auto mb-14">
+          {goldSponsors.map((sponsor, index) => (
+            <motion.div
+              key={sponsor.name}
+              className="flex items-center justify-center"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ scale: 1.1 }}
+            >
+              <a href={sponsor.url} target="_blank" rel="noopener noreferrer" className={`h-14 max-w-[200px] ${sponsor.bgClass} flex items-center justify-center overflow-hidden rounded-lg`}>
+                {sponsor.icon ? (
+                  <img
+                    src={sponsor.icon}
+                    alt={`${sponsor.name} logo`}
+                    className={`max-h-full max-w-full object-contain${sponsor.invert ? ' invert' : ''}`}
+                  />
+                ) : (
+                  <span className="font-mono text-white/30 text-sm px-6">{sponsor.name}</span>
+                )}
+              </a>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Community Sponsors */}
+        <motion.p
+          className="font-pixel text-xs text-[#FF4DA6] text-center mb-6 tracking-widest uppercase"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          Community Partners
+        </motion.p>
+        <div className="flex flex-wrap justify-center items-center gap-8 max-w-2xl mx-auto mb-10">
+          {communitySponsors.map((sponsor, index) => (
+            <motion.div
+              key={sponsor.name}
+              className="flex items-center justify-center"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ scale: 1.1 }}
+            >
+              <div className={`h-12 ${sponsor.bgClass} flex items-center justify-center overflow-hidden rounded-lg`}>
+                {sponsor.icon ? (
+                  <img
+                    src={sponsor.icon}
+                    alt={`${sponsor.name} logo`}
+                    className="h-full object-contain"
+                  />
+                ) : (
+                  <span className="font-mono text-white/30 text-xs px-4">{sponsor.name}</span>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
       </div>
     </section>
   );
