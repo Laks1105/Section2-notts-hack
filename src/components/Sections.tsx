@@ -6,6 +6,7 @@ import { DvdScreensaver } from 'react-dvd-screensaver';
 import { CalendarDays, Users, Trophy, UtensilsCrossed } from 'lucide-react';
 import CountdownTimer from './CountdownTimer';
 import DuckMascot from './DuckMascot';
+import { triggerNukeEvent } from './NukeEffect';
 
 import DLFrameReveal from './DLFrameReveal';
 
@@ -391,14 +392,14 @@ export function Footer() {
           </div>
 
           <div className="flex justify-center gap-4">
-            <motion.a
-              href="#register"
-              className="btn-primary font-pixel text-[10px] w-fit px-8 py-3 rounded-full whitespace-nowrap"
+            <motion.button
+              onClick={(e) => { e.preventDefault(); triggerNukeEvent(); }}
+              className="btn-primary font-pixel text-[10px] w-fit px-8 py-3 rounded-full whitespace-nowrap cursor-pointer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               REGISTER NOW
-            </motion.a>
+            </motion.button>
           </div>
         </div>
 

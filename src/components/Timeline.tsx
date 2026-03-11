@@ -1,100 +1,193 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
-import BlockchainScene2 from './BlockchainScene2';
 
-const BlockchainScene = dynamic(() => import('./BlockchainScene'), {
-  ssr: false,
-});
+interface TimelineEvent {
+  time?: string;
+  title: string;
+  venue?: string;
+  highlight?: boolean;
+}
 
-const events = [
-  { type: 'KICKOFF', title: 'Info Session', date: '11th February 2026' },
-  { type: 'LAUNCH', title: 'Registration Opens', date: '11th February 2026' },
-  { type: 'WORKSHOP 1', title: 'Introduction to Hackathon: Tips from past winners', date: '24th March 2026' },
-  { type: 'WORKSHOP 2', title: 'Introduction to BlockChain and Cryptocurrency', date: '25th March 2026' },
-  { type: 'WORKSHOP 3', title : 'Intro to Agentic Coding + EVM', date: '26th March 2026' },
-  { type: 'WORKSHOP 4', title : 'Introduction to Sui and Move Language', date: '31st March - 1st April 2026' },
-  { type: 'HACKATHON', title: 'Hacking Begins', date: '6th - 12th Apr 2026' },
+interface TimelinePhase {
+  label: string;
+  date: string;
+  tag?: string;
+  tagColor?: string;
+  events: TimelineEvent[];
+}
+
+const phases: TimelinePhase[] = [
+  {
+    label: 'PRE-HACKATHON WORKSHOPS',
+    date: 'March 2026',
+    tag: 'WORKSHOPS',
+    tagColor: '#5CE6A0',
+    events: [
+      { time: '24 Mar', title: 'Introduction to Hackathons by CCACC', venue: 'F1A02' },
+      { time: '25 Mar', title: 'DCAI Workshop', venue: 'F1A02' },
+      { time: '26 Mar', title: 'Workshop (TBD)', venue: 'F1A02' },
+      { time: '31 Mar – 1 Apr', title: 'Workshop (TBD)', venue: 'F1A02' },
+    ],
+  },
+  {
+    label: 'DAY 1 — ONLINE OPENING CEREMONY',
+    date: 'April 6',
+    tag: 'ONLINE',
+    tagColor: '#FF4DA6',
+    events: [
+      { time: '19:00', title: 'Welcome & Introduction' },
+      { time: '19:10', title: 'Sponsor Speeches' },
+      { time: '19:20', title: 'Hackathon Briefing — Rules, Format & Judging Criteria' },
+      { time: '20:00', title: 'Submission Guide' },
+      { time: '20:15', title: 'Q&A & Closing Remarks' },
+      { time: '20:30', title: 'Online Hacking Begins!', highlight: true },
+    ],
+  },
+  {
+    label: 'DAY 2 — PHYSICAL HACKING',
+    date: 'April 11',
+    tag: 'ON-SITE',
+    tagColor: '#5CE6A0',
+    events: [
+      { time: '09:00', title: 'Online Hacking Ends · Registration & Breakfast', venue: 'F1 Foyer' },
+      { time: '10:00', title: 'Mentorship Session 1', venue: 'F3B06' },
+      { time: '13:00', title: 'Lunch', venue: 'F1 Foyer' },
+      { time: '14:00', title: 'Mentorship Session 2', venue: 'F3B06' },
+      { time: '19:00', title: 'Dinner', venue: 'F1 Foyer' },
+    ],
+  },
+  {
+    label: 'DAY 3 — JUDGING & AWARDS',
+    date: 'April 12',
+    tag: 'FINALE',
+    tagColor: '#FF4DA6',
+    events: [
+      { time: '08:00', title: 'Submission Deadline · Breakfast', venue: 'F1 Foyer', highlight: true },
+      { time: '09:00', title: 'Evaluation of Submissions', venue: 'F1A22' },
+      { time: '10:00', title: 'Opening Ceremony', venue: 'F1A13' },
+      { time: '11:00', title: 'Physical Pitching', venue: 'F1A13 / F1A15 / F1A11' },
+      { time: '13:00', title: 'Lunch', venue: 'F1 Foyer' },
+      { time: '14:00', title: 'Judging Session', venue: 'F1A22' },
+      { time: '15:00', title: 'Prize Giving & Closing Ceremony', venue: 'F1A13', highlight: true },
+    ],
+  },
 ];
+
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.15 } },
+};
+
+const phaseVariants = {
+  hidden: { opacity: 0, y: 32 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: -12 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.35, ease: 'easeOut' } },
+};
 
 export default function TimelineSection() {
   return (
-    <section id="timeline" className="relative py-32 overflow-hidden">
-      {/* Background animation */}
-      <div className="absolute inset-0 z-0">
-        <Suspense fallback={null}>
-          <BlockchainScene2 />
-        </Suspense>
-      </div>
+    <section id="timeline" className="relative py-24 md:py-32 overflow-hidden">
+      <div className="max-w-3xl mx-auto px-5 md:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16 md:mb-20"
+        >
+          <h2 className="font-pixel text-2xl md:text-3xl text-white mb-3">
+            EVENT TIMELINE
+          </h2>
+          <p className="font-mono text-[#B8AEC9] text-sm">
+            6th April – 12th April 2026 · University of Nottingham Malaysia
+          </p>
+        </motion.div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4">
-        <motion.h2 className="font-pixel text-2xl md:text-4xl text-center mb-5 text-white">
-          EVENT TIMELINE
-        </motion.h2>
-        <motion.p className="text-center text-[#FF4DA6] font-pixel text-sm mb-24">
-          FOR MORE INFO ↓
-        </motion.p>
-      </div>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          className="flex flex-col gap-12 md:gap-16"
+        >
+          {phases.map((phase, phaseIdx) => (
+            <motion.div key={phaseIdx} variants={phaseVariants}>
+              {/* Phase header */}
+              <div className="flex items-center gap-3 mb-5">
+                <div
+                  className="w-3 h-3 rounded-full shrink-0"
+                  style={{ backgroundColor: phase.tagColor, boxShadow: `0 0 10px ${phase.tagColor}60` }}
+                />
+                <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
+                  <h3 className="font-pixel text-[10px] md:text-xs text-white leading-relaxed">
+                    {phase.label}
+                  </h3>
+                  {phase.tag && (
+                    <span
+                      className="font-pixel text-[8px] px-2 py-1 rounded-full border w-fit"
+                      style={{ color: phase.tagColor, borderColor: `${phase.tagColor}40` }}
+                    >
+                      {phase.tag}
+                    </span>
+                  )}
+                </div>
+              </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-4">
-        {/* The Vertical Line: Left-aligned on mobile, Center-aligned on desktop */}
-        <div className="absolute top-0 left-8 md:left-1/2 -translate-x-1/2 h-full w-[2px] bg-white/20" />
+              {/* Phase date */}
+              <p className="font-mono text-[#B8AEC9] text-xs ml-6 -mt-3 mb-4">
+                {phase.date}
+              </p>
 
-        <div className="flex flex-col gap-12">
-          {events.map((event, index) => (
-            <TimelineItem key={index} event={event} index={index} />
+              {/* Events list */}
+              <motion.div
+                variants={containerVariants}
+                className="ml-[5px] border-l-[2px] border-white/10 pl-5 flex flex-col gap-[2px]"
+              >
+                {phase.events.map((event, eventIdx) => (
+                  <motion.div
+                    key={eventIdx}
+                    variants={itemVariants}
+                    className={`
+                      group relative flex items-start gap-4 py-3 px-4 rounded-lg
+                      transition-colors duration-200 hover:bg-white/[0.04]
+                      ${event.highlight ? 'bg-white/[0.03]' : ''}
+                    `}
+                  >
+                    {/* Connecting dot on the border */}
+                    <div
+                      className="absolute -left-[25px] top-[18px] w-[8px] h-[8px] rounded-full border-2 bg-[#2D2D3A] transition-colors duration-200 group-hover:bg-white/20"
+                      style={{ borderColor: event.highlight ? phase.tagColor! : 'rgba(255,255,255,0.2)' }}
+                    />
+
+                    {/* Time */}
+                    <span className="font-mono text-xs text-[#B8AEC9] w-24 shrink-0 pt-[2px] tabular-nums">
+                      {event.time}
+                    </span>
+
+                    {/* Content */}
+                    <div className="flex-1 min-w-0">
+                      <p className={`font-mono text-sm leading-snug ${
+                        event.highlight ? 'text-white font-bold' : 'text-white/80'
+                      }`}>
+                        {event.title}
+                      </p>
+                      {event.venue && (
+                        <span className="font-mono text-[11px] text-[#B8AEC9]/60 mt-1 block">
+                          📍 {event.venue}
+                        </span>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
-  );
-}
-
-function TimelineItem({ event, index }: any) {
-  const isLeft = index % 2 === 0;
-
-  return (
-    <motion.div
-      // 1. flex items-center ensures the dot and card are ALWAYS perfectly leveled
-      className={`relative flex items-center w-full min-h-[150px] ${
-        isLeft ? 'md:flex-row-reverse' : 'md:flex-row'
-      }`}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-    >
-      {/* 2. The Dot (Stays on the line) */}
-      <motion.div 
-        className="absolute left-8 md:left-1/2 -translate-x-1/2 z-20 w-4 h-4 rounded-full bg-[#5CE6A0]"
-        animate={{ boxShadow: ["0 0 10px #5CE6A0", "0 0 20px #5CE6A0", "0 0 10px #5CE6A0"] }}
-        transition={{ duration: 1.5, repeat: Infinity }}
-      />
-
-      {/* 3. The Connecting Line (Calculated from the center) */}
-      <div 
-      className={`hidden md:block absolute top-1/2 -translate-y-1/2 h-[2px] w-[12vw] bg-white/40 ${
-        isLeft 
-      ? 'left-[calc(50%+8px)]'// Starts 8px left of center, extends 48px left
-      : 'right-[calc(50%+8px)]'   // Starts 8px right of center, extends 48px right
-      }`} 
-      />
-
-      {/* 4. The Content Card (Now using margins instead of absolute positioning) */}
-      <motion.div
-        className={`
-          card-dark p-6 z-10
-          w-[calc(100%-5rem)] ml-20 mr-4    /* Mobile styles */
-          md:w-[320px] md:ml-0 md:mr-0     /* Desktop styles */
-          ${isLeft ? 'md:mr-12' : 'md:ml-12'}
-        `}
-        whileHover={{ scale: 1.05 }}
-      >
-        <span className="font-pixel text-xs text-[#FF4DA6] block">{event.type}</span>
-        <h3 className="font-mono text-white text-lg mt-2 leading-tight">{event.title}</h3>
-        <p className="font-mono text-[#B8AEC9] text-sm mt-1">{event.date}</p>
-      </motion.div>
-    </motion.div>
   );
 }

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { DvdScreensaver } from 'react-dvd-screensaver';
 import AnimatedLogo from './AnimatedLogo';
+import { triggerNukeEvent } from './NukeEffect';
 
 const BlockchainScene = dynamic(() => import('./BlockchainScene'), {
   ssr: false,
@@ -148,14 +149,14 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1 }}
         >
-          <motion.a
-            href="#register"
-            className="btn-primary font-pixel text-xs md:text-sm px-8 py-4 rounded-full inline-block"
+          <motion.button
+            onClick={(e) => { e.preventDefault(); triggerNukeEvent(); }}
+            className="btn-primary font-pixel text-xs md:text-sm px-8 py-4 rounded-full cursor-pointer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             REGISTER NOW
-          </motion.a>
+          </motion.button>
           <motion.a
             href="#about"
             className="font-pixel text-xs md:text-sm px-8 py-4 rounded-full border-2 border-white/30 text-white hover:border-[#FF4DA6] hover:text-[#FF4DA6] transition-colors"
