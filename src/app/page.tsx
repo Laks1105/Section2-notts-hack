@@ -1,7 +1,7 @@
 import FAQSection from '@/components/FAQsection';
 import HeroSection from '@/components/HeroSection';
 import NukeEffect from '@/components/NukeEffect';
-import { DatesSection, AboutSection, TracksSection, SponsorsSection, Footer } from '@/components/Sections';
+import { AboutSection, TracksSection, SponsorsSection, Footer } from '@/components/Sections';
 import Timeline from '@/components/Timeline';
 
 export default function Home() {
@@ -9,7 +9,6 @@ export default function Home() {
     <main className="relative min-h-screen animated-gradient">
       <NukeEffect />
       <HeroSection />
-      <DatesSection />
       <AboutSection />
       <TracksSection />
       <Timeline />

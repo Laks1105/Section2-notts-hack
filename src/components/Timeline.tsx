@@ -21,8 +21,8 @@ const phases: TimelinePhase[] = [
   {
     label: 'PRE-HACKATHON WORKSHOPS',
     date: 'March 2026',
-    tag: 'WORKSHOPS',
-    tagColor: '#5CE6A0',
+    tag: 'HYBRID',
+    tagColor: '#FFE66D',
     events: [
       { time: '24 Mar', title: 'Introduction to Hackathons by CCACC', venue: 'F1A02' },
       { time: '25 Mar', title: 'DCAI Workshop', venue: 'F1A02' },
@@ -60,8 +60,8 @@ const phases: TimelinePhase[] = [
   {
     label: 'DAY 3 — JUDGING & AWARDS',
     date: 'April 12',
-    tag: 'FINALE',
-    tagColor: '#FF4DA6',
+    tag: 'ON-SITE',
+    tagColor: '#5CE6A0',
     events: [
       { time: '08:00', title: 'Submission Deadline · Breakfast', venue: 'F1 Foyer', highlight: true },
       { time: '09:00', title: 'Evaluation of Submissions', venue: 'F1A22' },
@@ -91,93 +91,89 @@ const itemVariants = {
 
 export default function TimelineSection() {
   return (
-    <section id="timeline" className="relative py-24 md:py-32 overflow-hidden">
-      <div className="max-w-3xl mx-auto px-5 md:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16 md:mb-20"
+    <section id="timeline" className="py-20 px-4 relative z-10">
+      <div className="max-w-5xl mx-auto">
+        <motion.h2
+          className="font-pixel text-2xl md:text-4xl text-center mb-12 text-white"
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
         >
-          <h2 className="font-pixel text-2xl md:text-3xl text-white mb-3">
-            EVENT TIMELINE
-          </h2>
-          <p className="font-mono text-[#B8AEC9] text-sm">
-            6th April – 12th April 2026 · University of Nottingham Malaysia
-          </p>
-        </motion.div>
+          TIMELINE
+        </motion.h2>
 
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="flex flex-col gap-12 md:gap-16"
+          className="flex flex-col gap-6"
         >
           {phases.map((phase, phaseIdx) => (
-            <motion.div key={phaseIdx} variants={phaseVariants}>
+            <motion.div
+              key={phaseIdx}
+              variants={phaseVariants}
+              className="card-dark p-6 md:p-8"
+              style={{ borderColor: `${phase.tagColor}30` }}
+            >
               {/* Phase header */}
-              <div className="flex items-center gap-3 mb-5">
-                <div
-                  className="w-3 h-3 rounded-full shrink-0"
-                  style={{ backgroundColor: phase.tagColor, boxShadow: `0 0 10px ${phase.tagColor}60` }}
-                />
-                <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
-                  <h3 className="font-pixel text-[10px] md:text-xs text-white leading-relaxed">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div>
+                  <h3 className="font-pixel text-xs md:text-sm text-white leading-relaxed mb-1">
                     {phase.label}
                   </h3>
-                  {phase.tag && (
-                    <span
-                      className="font-pixel text-[8px] px-2 py-1 rounded-full border w-fit"
-                      style={{ color: phase.tagColor, borderColor: `${phase.tagColor}40` }}
-                    >
-                      {phase.tag}
-                    </span>
-                  )}
+                  <p className="font-mono text-white/60 text-xs">
+                    {phase.date}
+                  </p>
                 </div>
+                {phase.tag && (
+                  <span
+                    className="font-pixel text-[8px] md:text-[10px] px-3 py-1 rounded-full border shrink-0"
+                    style={{ color: phase.tagColor, borderColor: `${phase.tagColor}40` }}
+                  >
+                    {phase.tag}
+                  </span>
+                )}
               </div>
 
-              {/* Phase date */}
-              <p className="font-mono text-[#B8AEC9] text-xs ml-6 -mt-3 mb-4">
-                {phase.date}
-              </p>
+              {/* Divider */}
+              <div
+                className="h-[2px] rounded-full mb-4 opacity-30"
+                style={{ backgroundColor: phase.tagColor }}
+              />
 
               {/* Events list */}
               <motion.div
                 variants={containerVariants}
-                className="ml-[5px] border-l-[2px] border-white/10 pl-5 flex flex-col gap-[2px]"
+                className="flex flex-col gap-1"
               >
                 {phase.events.map((event, eventIdx) => (
                   <motion.div
                     key={eventIdx}
                     variants={itemVariants}
                     className={`
-                      group relative flex items-start gap-4 py-3 px-4 rounded-lg
-                      transition-colors duration-200 hover:bg-white/[0.04]
-                      ${event.highlight ? 'bg-white/[0.03]' : ''}
+                      group flex items-start gap-3 py-2.5 px-3 rounded-lg
+                      transition-colors duration-200 hover:bg-white/[0.06]
+                      ${event.highlight ? 'bg-white/[0.04]' : ''}
                     `}
                   >
-                    {/* Connecting dot on the border */}
-                    <div
-                      className="absolute -left-[25px] top-[18px] w-[8px] h-[8px] rounded-full border-2 bg-[#2D2D3A] transition-colors duration-200 group-hover:bg-white/20"
-                      style={{ borderColor: event.highlight ? phase.tagColor! : 'rgba(255,255,255,0.2)' }}
-                    />
-
                     {/* Time */}
-                    <span className="font-mono text-xs text-[#B8AEC9] w-24 shrink-0 pt-[2px] tabular-nums">
+                    <span className="font-mono text-xs text-[#B8AEC9] w-28 shrink-0 pt-[2px] tabular-nums">
                       {event.time}
                     </span>
 
                     {/* Content */}
                     <div className="flex-1 min-w-0">
                       <p className={`font-mono text-sm leading-snug ${
-                        event.highlight ? 'text-white font-bold' : 'text-white/80'
-                      }`}>
+                        event.highlight ? 'font-bold' : 'text-white/80'
+                      }`}
+                        style={event.highlight ? { color: phase.tagColor } : undefined}
+                      >
                         {event.title}
                       </p>
                       {event.venue && (
-                        <span className="font-mono text-[11px] text-[#B8AEC9]/60 mt-1 block">
-                          📍 {event.venue}
+                        <span className="font-mono text-xs text-white/40 mt-1 block">
+                          {event.venue}
                         </span>
                       )}
                     </div>

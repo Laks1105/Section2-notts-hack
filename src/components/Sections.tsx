@@ -16,65 +16,8 @@ const fadeInUp = {
   transition: { duration: 0.6 }
 };
 
-export function DatesSection() {
-  const hackathonStart = new Date('2026-04-06T00:00:00');
-
-  const dates = [
-    { title: 'Hacking Period', date: '6-12 April 2026', description: 'Online hacking begins!' },
-    { title: 'Physical Hacking', date: '10-12 April 2026', location: 'University of Nottingham' },
-  ];
-
-  return (
-    <section id="dates" className="py-20 px-4 relative z-10">
-      <div className="max-w-6xl mx-auto">
-        <motion.h2
-          className="font-pixel text-2xl md:text-4xl text-center mb-4 text-white"
-          {...fadeInUp}
-        >
-          IMPORTANT DATES
-        </motion.h2>
-        <motion.p
-          className="text-center text-[#FF4DA6] font-pixel text-sm mb-12"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          Mark your calendars!
-        </motion.p>
-
-        <div className="mb-12">
-          <p className="text-center text-white/80 mb-4 font-mono">Countdown to Hacking</p>
-          <CountdownTimer targetDate={hackathonStart} />
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          {dates.map((item, index) => (
-            <motion.div
-              key={item.title}
-              className="card-dark p-6 md:p-8"
-              initial={{ opacity: 0, x: index === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
-              whileHover={{ scale: 1.02, boxShadow: '0 0 30px rgba(92, 230, 160, 0.3)' }}
-            >
-              <h3 className="font-pixel text-lg md:text-xl text-[#5CE6A0] mb-3">{item.title}</h3>
-              <p className="font-mono text-2xl md:text-3xl text-white mb-2">{item.date}</p>
-              {item.location && (
-                <p className="font-mono text-[#FF4DA6]">📍 {item.location}</p>
-              )}
-              {item.description && (
-                <p className="font-mono text-white/70">{item.description}</p>
-              )}
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export function AboutSection() {
+  const hackathonStart = new Date('2026-04-06T00:00:00');
   const highlights = [
     { icon: <CalendarDays className="w-7 h-7" />, label: '6 Days', detail: 'of hacking', color: '#FF4DA6' },
     { icon: <Users className="w-7 h-7" />, label: '3-5 People', detail: 'per team', color: '#5CE6A0' },
@@ -91,15 +34,6 @@ export function AboutSection() {
         >
           ABOUT NOTTS HACK
         </motion.h2>
-        <motion.p
-          className="text-center text-[#FF4DA6] font-pixel text-sm mb-12"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          Build. Hack. Decentralize.
-        </motion.p>
-
         {/* Main description */}
         <motion.div
           className="card-dark p-8 md:p-10 mb-8"
@@ -147,6 +81,11 @@ export function AboutSection() {
           ))}
         </div>
 
+        <div className="mt-8 mb-8">
+          <p className="text-center text-white/80 mb-4 font-mono">Countdown to Hacking</p>
+          <CountdownTimer targetDate={hackathonStart} />
+        </div>
+
         {/* Event format breakdown */}
         <div className="grid md:grid-cols-2 gap-4">
           <motion.div
@@ -161,7 +100,7 @@ export function AboutSection() {
             </p>
             <ul className="font-mono text-white/60 text-xs space-y-1">
               <li>- Opening ceremony &amp; hackathon briefing</li>
-              <li>- Pre-hackathon workshops (CCACC, DCAI)</li>
+              <li>- Pre-hackathon workshops </li>
               <li>- Five days of building with your team</li>
             </ul>
           </motion.div>
@@ -182,6 +121,7 @@ export function AboutSection() {
             </ul>
           </motion.div>
         </div>
+
       </div>
     </section>
   );
