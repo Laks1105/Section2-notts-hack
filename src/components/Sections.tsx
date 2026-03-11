@@ -235,6 +235,7 @@ export function TracksSection() {
 
 export function SponsorsSection() {
   const sponsors = [
+    { name: 'BGA', tier: 'Diamond', icon: '/BGA Logo -  (coloured).PNG', bgClass: '', containerClass: 'w-full h-24 px-2 rounded-none', logoClass: 'w-full h-full' },
     { name: 'DCAI', tier: 'Platinum', icon: '/DCAI.png', bgClass: 'bg-white p-2' },
     { name: 'CSS Society', tier: 'Organizer', icon: '/CSSLogo.png', bgClass: 'bg-white/10' },
   ];
@@ -259,7 +260,7 @@ export function SponsorsSection() {
           Made possible by
         </motion.p>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
           {sponsors.map((sponsor, index) => (
             <motion.div
               key={sponsor.name}
@@ -273,12 +274,12 @@ export function SponsorsSection() {
                 boxShadow: '0 0 30px rgba(255, 77, 166, 0.3)'
               }}
             >
-              <div className={`w-20 h-20 mx-auto mb-4 rounded-full ${sponsor.bgClass} flex items-center justify-center overflow-hidden`}>
+              <div className={`${'containerClass' in sponsor && sponsor.containerClass ? sponsor.containerClass : 'w-20 h-20 rounded-full'} mx-auto mb-4 ${sponsor.bgClass} flex items-center justify-center overflow-hidden`}>
                 {sponsor.icon && (
                   <img
                     src={sponsor.icon}
                     alt={`${sponsor.name} logo`}
-                    className="w-full h-full object-contain"
+                    className={`${'logoClass' in sponsor && sponsor.logoClass ? sponsor.logoClass : 'w-full h-full'} object-contain`}
                   />
                 )}
               </div>
