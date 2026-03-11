@@ -308,7 +308,7 @@ export function Footer() {
   return (
     <footer className="py-12 px-4 relative z-10 border-t border-white/10">
       <div className="max-w-6xl mx-auto ">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="flex flex-col items-center gap-8 md:grid md:grid-cols-3">
           <div className="flex items-center gap-0">
             {/* <DuckMascot size="sm" /> Goodbye Duck ;( */}
             <img
@@ -322,7 +322,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="flex gap-4 md:absolute md:left-1/2 md:-translate-x-1/2">
+          <div className="flex justify-center gap-4">
             {socials.map((social) => (
               <motion.a
                 key={social.name}
@@ -338,14 +338,16 @@ export function Footer() {
             ))}
           </div>
 
-          <motion.a
-            href="#register"
-            className="btn-primary font-pixel text-xs px-6 py-3 rounded-full"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            REGISTER NOW
-          </motion.a>
+          <div className="flex justify-center gap-4">
+            <motion.a
+              href="#register"
+              className="btn-primary font-pixel text-[10px] w-fit px-8 py-3 rounded-full whitespace-nowrap"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              REGISTER NOW
+            </motion.a>
+          </div>
         </div>
 
         <div className="mt-8 pt-8 border-t border-white/10 text-center">

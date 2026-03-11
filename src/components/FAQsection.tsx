@@ -62,7 +62,7 @@ const faqs = [
   },
   {
     q: 'How can I contact the organisers?',
-    a: 'Email: nottshack@gmail.com | Instagram: @unm.css',
+    a: 'Email: nottshack26@gmail.com | Instagram: @unm.css',
   },
 ];
 
