@@ -76,20 +76,6 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center justify-center pt-10">
-        {/* CCACC Logo */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-8"
-        >
-          <img
-            src="/CCACCLogo.svg"
-            alt="CCACC Logo"
-            className="w-32 h-auto md:w-48 object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
-          />
-        </motion.div>
-
         {/* CSS Presents Badge */}
         <motion.div
           className="inline-block mb-6"
@@ -97,8 +83,8 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <span className="card-dark px-4 py-2 font-pixel text-xs md:text-sm text-[#FF4DA6]">
-            ✨ CSS PRESENTS ✨
+          <span className="font-mono text-xs md:text-sm font-bold tracking-[0.25em] uppercase text-white/80 border border-white/20 px-4 py-1.5 rounded-full">
+            UNM CSS presents
           </span>
         </motion.div>
 
@@ -124,6 +110,23 @@ export default function HeroSection() {
           <span className="text-white">Hack.</span>{' '}
           <span className="text-[#5CE6A0]">Decentralize.</span>
         </motion.p>
+
+        {/* Powered by CCACC */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
+          className="mb-8 flex flex-col items-center gap-1"
+        >
+          <span className="font-mono text-[10px] md:text-xs text-white/50 tracking-widest uppercase">
+            powered by
+          </span>
+          <img
+            src="/CCACCLogo.svg"
+            alt="CCACC Logo"
+            className="w-24 h-auto md:w-36 object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+          />
+        </motion.div>
 
         {/* Block Confirmed Toast */}
         <AnimatePresence>
@@ -163,16 +166,6 @@ export default function HeroSection() {
             LEARN MORE
           </motion.a>
         </motion.div>
-
-        {/* Event Date */}
-        <motion.p
-          className="font-mono text-sm text-white/60 mt-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-        >
-          📅 April 6-12, 2026 • 📍 University of Nottingham Malaysia
-        </motion.p>
       </div>
 
       {/* DVD Bounce Easter Egg */}
