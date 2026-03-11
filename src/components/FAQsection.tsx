@@ -86,7 +86,7 @@ export default function FAQSection() {
       <div className="relative z-10 max-w-4xl mx-auto">
 
 
-        <h2 className="font-pixel text-3xl md:text-3.5xl text-center mb-12">
+        <h2 className="font-pixel text-3xl md:text-4xl text-center mb-12">
           <span>FREQUENTLY</span>{' '}
           <span className="text-pink-400">ASKED</span>{' '}
           <span>QUESTIONS</span>
