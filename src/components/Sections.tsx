@@ -8,7 +8,7 @@ import DuckMascot from './DuckMascot';
 import { triggerNukeEvent } from './NukeEffect';
 
 import DLFrameReveal from './DLFrameReveal';
-import { CalendarDays, Users, Trophy, UtensilsCrossed } from 'lucide-react';
+import { CalendarDays, Users, Trophy, UtensilsCrossed, Instagram } from 'lucide-react';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -365,7 +365,7 @@ export function Footer() {
   }, []);
 
   const socials = [
-    { name: 'Instagram', icon: <img src="/Instagram2.png" alt="Instagram" className="" />, url: 'https://www.instagram.com/unm.css?igsh=cTBmc21hNWFuNHF0' },
+    { name: 'Instagram', icon: <Instagram size={20} />, url: 'https://www.instagram.com/nottshack26' },
 
   ];
 
