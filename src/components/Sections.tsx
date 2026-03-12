@@ -456,7 +456,7 @@ export function Footer() {
     <footer className="py-6 px-4 relative z-10 border-t border-white/10">
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         <p className="font-mono text-xs text-white/40">
-          © 2026 Notts Hack. Built with 💜 by CSS Society.
+          © 2026 UNM CSS
         </p>
 
         <motion.a
