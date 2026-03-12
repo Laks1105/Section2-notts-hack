@@ -1,11 +1,8 @@
 'use client';
 
-import { useState, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { DvdScreensaver } from 'react-dvd-screensaver';
+import { motion } from 'framer-motion';
 import CountdownTimer from './CountdownTimer';
 import DuckMascot from './DuckMascot';
-import { triggerNukeEvent } from './NukeEffect';
 
 import DLFrameReveal from './DLFrameReveal';
 import { CalendarDays, Users, Trophy, UtensilsCrossed, Instagram } from 'lucide-react';
@@ -354,105 +351,25 @@ export function SponsorsSection() {
   );
 }
 
-const DVD_COLORS = ['#FF4DA6', '#5CE6A0', '#FF6B6B', '#4ECDC4', '#FFE66D', '#A855F7', '#38BDF8'];
-
 export function Footer() {
-  const [dvdMode, setDvdMode] = useState(false);
-  const [logoHue, setLogoHue] = useState(0);
-
-  const handleImpact = useCallback((count: number) => {
-    setLogoHue(count % DVD_COLORS.length);
-  }, []);
-
-  const socials = [
-    { name: 'Instagram', icon: <Instagram size={20} />, url: 'https://www.instagram.com/nottshack26' },
-
-  ];
-
   return (
-    <footer className="py-12 px-4 relative z-10 border-t border-white/10">
-      <div className="max-w-6xl mx-auto ">
-        <div className="flex flex-col items-center gap-8 md:grid md:grid-cols-3">
-          <div className="flex items-center gap-0">
-            {/* <DuckMascot size="sm" /> Goodbye Duck ;( */}
-            <img
-              src="/NottsHack23.png"
-              alt="Notts Hack Mascot"
-              className="w-40 h-40 md:w-55 md:h-55 object-contain cursor-pointer"
-              onClick={() => setDvdMode(true)}
-            />
-            <div>
-              <p className="font-pixel text-sm text-white">NOTTS HACK 2026</p>
-              <p className="font-mono text-xs text-white/60">UNM CSS <br /> University of Nottingham Malaysia</p>
-            </div>
-          </div>
+    <footer className="py-6 px-4 relative z-10 border-t border-white/10">
+      <div className="max-w-6xl mx-auto flex items-center justify-between">
+        <p className="font-mono text-xs text-white/40">
+          © 2026 Notts Hack. Built with 💜 by CSS Society.
+        </p>
 
-          <div className="flex justify-center gap-4">
-            {socials.map((social) => (
-              <motion.a
-                key={social.name}
-                href={social.url}
-                className="w-10 h-10 card-dark flex items-center justify-center text-xl hover:bg-[#FF4DA6]/20"
-                target="_blank"
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                aria-label={social.name}
-              >
-                {social.icon}
-              </motion.a>
-            ))}
-          </div>
-
-          <div className="flex justify-center gap-4">
-            <motion.button
-              onClick={(e) => { e.preventDefault(); triggerNukeEvent(e); }}
-              className="btn-primary font-pixel text-[10px] w-fit px-8 py-3 rounded-full whitespace-nowrap cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              REGISTER NOW
-            </motion.button>
-          </div>
-        </div>
-
-        <div className="mt-8 pt-8 border-t border-white/10 text-center">
-          <p className="font-mono text-xs text-white/40">
-            © 2026 Notts Hack. Built with 💜 by CSS Society.
-          </p>
-        </div>
+        <motion.a
+          href="https://www.instagram.com/nottshack26"
+          className="w-10 h-10 card-dark flex items-center justify-center hover:bg-[#FF4DA6]/20 rounded-lg"
+          target="_blank"
+          whileHover={{ scale: 1.1, y: -2 }}
+          whileTap={{ scale: 0.95 }}
+          aria-label="Instagram"
+        >
+          <Instagram size={20} />
+        </motion.a>
       </div>
-      {/* DVD Bounce Easter Egg */}
-      <AnimatePresence>
-        {dvdMode && (
-          <motion.div
-            className="fixed top-0 left-0 z-[9999] cursor-pointer"
-            style={{ width: '100vw', height: '100vh', margin: 0, padding: 0 }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setDvdMode(false)}
-          >
-            <DvdScreensaver
-              speed={3}
-              impactCallback={handleImpact}
-              // @ts-expect-error - width/height accept numbers at runtime
-              width={typeof window !== 'undefined' ? window.innerWidth : 1920}
-              // @ts-expect-error - width/height accept numbers at runtime
-              height={typeof window !== 'undefined' ? window.innerHeight : 1080}
-            >
-              <img
-                src="/NottsHack23.png"
-                alt="Notts Hack Logo"
-                className="w-32 md:w-48 h-auto object-contain"
-                style={{
-                  filter: `drop-shadow(0 0 20px ${DVD_COLORS[logoHue]})`,
-                  transition: 'filter 0.3s ease',
-                }}
-              />
-            </DvdScreensaver>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </footer>
   );
 }

@@ -55,7 +55,7 @@ export default function Navbar() {
       >
         {/* Desktop: three-column grid */}
         <div
-          className="hidden md:grid"
+          className="hidden md:grid overflow-visible"
           style={{
             gridTemplateColumns: '1fr auto 1fr',
             alignItems: 'center',
@@ -63,8 +63,21 @@ export default function Navbar() {
             padding: '0 2rem',
           }}
         >
-          {/* Left — Logo */}
-          <div />
+          {/* Left — Logo (visible only when scrolled) */}
+          <div>
+            <motion.a
+              href="#"
+              className="flex items-center"
+              style={{ pointerEvents: scrolled ? 'auto' : 'none' }}
+              animate={{
+                opacity: scrolled ? 1 : 0,
+                y: scrolled ? 0 : -8,
+              }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+            >
+              <img src="/NottsHack23.png" alt="Notts Hack" className="h-10 w-auto object-contain" />
+            </motion.a>
+          </div>
 
           {/* Centre — Nav links */}
           <div className="flex items-center gap-8">
@@ -111,7 +124,18 @@ export default function Navbar() {
 
         {/* Mobile: logo + hamburger */}
         <div className="flex md:hidden items-center justify-between h-16 px-4">
-          <span className="font-pixel text-[10px] tracking-widest text-white">NOTTS HACK</span>
+          <motion.a
+            href="#"
+            className="flex items-center"
+            style={{ pointerEvents: scrolled ? 'auto' : 'none' }}
+            animate={{
+              opacity: scrolled ? 1 : 0,
+              y: scrolled ? 0 : -8,
+            }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+          >
+            <img src="/NottsHack23.png" alt="Notts Hack" className="h-8 w-auto object-contain" />
+          </motion.a>
           <button
             onClick={() => setMobileOpen((v) => !v)}
             className="text-white p-2"
