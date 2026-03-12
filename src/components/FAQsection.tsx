@@ -12,6 +12,9 @@ const faqs = [
     q: 'What is Nott Hack 2026?',
     a: 'Nott Hack 2026 is a blockchain-themed student hackathon where participants build innovative decentralized solutions, learn new skills, and connect with other developers through workshops, mentorship, and competition.',
   },
+  {q: 'Who can participate?',
+    a: 'This event is open to all students from any university or college in Malaysia.',
+  },
   {
     q: 'Can I join without a team?',
     a: 'No, all participants must be part of a team.',
@@ -25,7 +28,7 @@ const faqs = [
     a: 'Each team must consist of 3 to 5 members.',
   },
   {
-    q: 'When and where is it held?',
+    q: 'When and where is NottsHack 2026 held?',
     a: 'Nott Hack 2026 will be held from 6th April to 12 April 2026 at the University of Nottingham, Malaysia.',
   },
   {
@@ -48,13 +51,9 @@ const faqs = [
     q: 'Will food be provided?',
     a: 'Yes, food and refreshments will be provided during the physical sessions.',
   },
-  {
-    q: 'How do I register?',
-    a: 'You can register through Devfolio using the registration link provided.',
-  },
-  {
+ {
     q: 'Will prizes be provided to the winning team?',
-    a: 'Yes, prizes will be awarded to the winning teams. Prize details will be announced soon.',
+    a: 'Yes, prizes will be awarded to the winning teams. The exact prizes depend on which track your team enters.',
   },
   {
     q: 'Is registration free?',
@@ -62,7 +61,7 @@ const faqs = [
   },
   {
     q: 'How can I contact the organisers?',
-    a: 'Email: nottshack26@gmail.com | Instagram: @unm.css',
+    a: 'Email: efyms20@nottingham.edu.my\nInstagram: @unm.css',
   },
 ];
 
