@@ -74,7 +74,7 @@ export default function FAQSection() {
   const rightFaqs = faqs.filter((_, i) => i % 2 === 1);
 
   return (
-    <section className="relative min-h-screen w-full bg-gradient-to-b from-[#5D4777] to-[#5D4777] text-white px-6 py-20 overflow-hidden">
+    <section id="faq" className="relative min-h-screen w-full bg-gradient-to-b from-[#5D4777] to-[#5D4777] text-white px-6 py-20 overflow-hidden">
       {/* Background animation */}
       <div className="absolute inset-0 z-0">
         <Suspense fallback={null}>
