@@ -10,9 +10,9 @@ export default function Home() {
       <NukeEffect />
       <HeroSection />
       <AboutSection />
-      <GettingThereSection />
       <TracksSection />
       <Timeline />
+      <GettingThereSection />
       <SponsorsSection />
       <FAQSection />
       <Footer />

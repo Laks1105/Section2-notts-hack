@@ -5,7 +5,7 @@ import CountdownTimer from './CountdownTimer';
 import DuckMascot from './DuckMascot';
 
 import DLFrameReveal from './DLFrameReveal';
-import { CalendarDays, Users, Trophy, UtensilsCrossed, Instagram } from 'lucide-react';
+import { CalendarDays, Users, Trophy, UtensilsCrossed, Instagram, TrainFront, Car, MapPin, Map } from 'lucide-react';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -124,56 +124,101 @@ export function AboutSection() {
   );
 }
 export function GettingThereSection() {
+  const mapsUrl = "https://maps.app.goo.gl/9h91izM5ppdMjQPU7";
+
   return (
     <section id="getting-there" className="py-20 px-4 relative z-10">
       <div className="max-w-5xl mx-auto">
         <motion.h2
-          className="font-pixel text-2xl md:text-4xl text-center mb-4 text-white"
+          className="font-pixel text-2xl md:text-4xl text-center mb-10 text-white"
           {...fadeInUp}
         >
           GETTING THERE
         </motion.h2>
         <motion.p
-          className="text-center text-[#FF4DA6] font-pixel text-sm mb-12"
+          className="text-center font-mono text-white/70 text-sm max-w-2xl mx-auto mb-10"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
         >
-          Get to University of Nottingham Malaysia (UNM).
+          It is mandatory for all team members to attend the physical phase on Apr 11—12 at University of Nottingham Malaysia campus in Semenyih, Selangor. Meals, hacking rooms and nap rooms will be provided.
         </motion.p>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          <motion.div
-            className="card-dark p-8 md:p-10"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h4 className="font-pixel text-lg text-[#5CE6A0] mb-3">By public transport</h4>
-            <ul className="font-mono text-white/80 text-sm space-y-2">
-              <li>• Take MRT to Kajang station.</li>
-              <li>• From Kajang, take a Grab to <a href="https://maps.app.goo.gl/YaruvD3KzeTsb6dEA" target="_blank" rel="noreferrer" className="text-[#5CE6A0] underline">UNM Cafeteria</a>.</li>
-              
-            </ul>
-          </motion.div>
+        <div className="grid gap-6 md:grid-cols-[1fr_1.2fr] items-stretch">
+          <div className="space-y-4">
+            <motion.a
+              href={mapsUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="card-dark p-5 flex items-center gap-4 group hover:border-[#5CE6A0]/40 transition-colors"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="shrink-0 w-10 h-10 rounded-lg bg-[#5CE6A0]/10 flex items-center justify-center">
+                <TrainFront className="w-5 h-5 text-[#5CE6A0]" />
+              </div>
+              <div>
+                <h4 className="font-pixel text-sm text-[#5CE6A0] mb-1">Public transport</h4>
+                <p className="font-mono text-white/70 text-xs">MRT to Kajang station, then Grab to UNM Cafeteria</p>
+              </div>
+              <MapPin className="w-4 h-4 text-white/30 ml-auto shrink-0 group-hover:text-[#5CE6A0] transition-colors" />
+            </motion.a>
+
+            <motion.a
+              href={mapsUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="card-dark p-5 flex items-center gap-4 group hover:border-[#FF4DA6]/40 transition-colors"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              <div className="shrink-0 w-10 h-10 rounded-lg bg-[#FF4DA6]/10 flex items-center justify-center">
+                <Car className="w-5 h-5 text-[#FF4DA6]" />
+              </div>
+              <div>
+                <h4 className="font-pixel text-sm text-[#FF4DA6] mb-1">By car</h4>
+                <p className="font-mono text-white/70 text-xs">Navigate to UNM Cafeteria · Park in yellow or red lot</p>
+              </div>
+              <MapPin className="w-4 h-4 text-white/30 ml-auto shrink-0 group-hover:text-[#FF4DA6] transition-colors" />
+            </motion.a>
+
+          </div>
 
           <motion.div
-            className="card-dark p-8 md:p-10"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            className="card-dark overflow-hidden min-h-[280px]"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
           >
-            <h4 className="font-pixel text-lg text-[#FF4DA6] mb-3">By car</h4>
-            <ul className="font-mono text-white/80 text-sm space-y-2">
-              <li>
-                • Use Google Maps: <a href="https://maps.app.goo.gl/YaruvD3KzeTsb6dEA" target="_blank" rel="noreferrer" className="text-[#5CE6A0] underline">UNM Cafeteria</a>.
-              </li>
-              <li>• Parking is available on campus(Park in yellow and red lot).</li>
-              
-              
-            </ul>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3985.4!2d101.8763136!3d2.9436195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdce0fe6da15fb%3A0x78fc9bbd6d340!2sUNM%20Cafeteria!5e1!3m2!1sen!2smy!4v1700000000000"
+              className="w-full h-full min-h-[280px] border-0"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="University of Nottingham Malaysia"
+            />
           </motion.div>
         </div>
+
+        <motion.a
+          href="https://www.nottingham.edu.my/AboutUs/documents/Campus-Map-2018updated.pdf"
+          target="_blank"
+          rel="noreferrer"
+          className="mt-6 flex items-center justify-center gap-2 font-mono text-sm text-[#00D4FF] hover:text-[#00D4FF]/80 transition-colors"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+        >
+          <Map className="w-4 h-4" />
+          View full campus map (PDF)
+        </motion.a>
       </div>
     </section>
   );
