@@ -40,15 +40,13 @@ export default function Navbar() {
         className="fixed top-0 left-0 z-50"
         style={{
           width: '100vw',
-          background: scrolled || mobileOpen ? 'rgba(45, 30, 65, 0.92)' : 'transparent',
-          backdropFilter: scrolled || mobileOpen ? 'blur(16px)' : 'none',
-          WebkitBackdropFilter: scrolled || mobileOpen ? 'blur(16px)' : 'none',
+          background: scrolled || mobileOpen ? 'rgba(45, 30, 65, 0.97)' : 'transparent',
           borderBottom: scrolled
             ? '1px solid rgba(255, 77, 166, 0.25)'
             : '1px solid transparent',
           boxShadow: scrolled ? '0 4px 32px rgba(0, 0, 0, 0.35)' : 'none',
           transition:
-            'background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease',
+            'background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease',
         }}
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -167,9 +165,7 @@ export default function Navbar() {
             <motion.div
               className="absolute top-16 left-0 right-0 border-t border-white/10"
               style={{
-                background: 'rgba(45, 30, 65, 0.97)',
-                backdropFilter: 'blur(20px)',
-                WebkitBackdropFilter: 'blur(20px)',
+                background: 'rgba(45, 30, 65, 0.98)',
               }}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
