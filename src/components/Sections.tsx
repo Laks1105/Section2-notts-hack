@@ -271,7 +271,7 @@ export function TracksSection() {
 
 export function SponsorsSection() {
   const diamondSponsors = [
-    { name: 'DCAI', icon: '/DCAI.png', bgClass: 'bg-white p-2', url: 'https://dcai.ai/' },
+    { name: 'DCAI', icon: '/DCAI_white.png', bgClass: '', url: 'https://dcai.ai/' },
     { name: 'BGA', icon: '/BGA Logo -  (coloured).PNG', bgClass: '', url: 'https://chainforgood.org/' },
   ];
 
