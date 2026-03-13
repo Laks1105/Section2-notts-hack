@@ -62,15 +62,9 @@ export default function CountdownTimer({ targetDate }: { targetDate: Date }) {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: index * 0.1 }}
         >
-          <motion.div
-            className="font-pixel text-2xl md:text-4xl text-[#5CE6A0]"
-            key={unit.value}
-            initial={{ scale: 1.2 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.2 }}
-          >
+          <div className="font-pixel text-2xl md:text-4xl text-[#5CE6A0]">
             {String(unit.value).padStart(2, '0')}
-          </motion.div>
+          </div>
           <div className="font-pixel text-[8px] md:text-xs text-[#FF4DA6] mt-2">
             {unit.label}
           </div>

@@ -72,7 +72,7 @@ export default function DuckMascot({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' 
           stroke="#3D2D5A"
           strokeWidth="1.5"
           animate={{ rotate: [0, -5, 0] }}
-          transition={{ duration: 0.5, repeat: Infinity }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
         />
         
         {/* Laptop */}
@@ -103,7 +103,7 @@ export default function DuckMascot({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' 
           height="2"
           fill="#FF4DA6"
           animate={{ opacity: [1, 0.3, 1] }}
-          transition={{ duration: 0.3, repeat: Infinity, delay: 0 }}
+          transition={{ duration: 0.8, repeat: Infinity, delay: 0 }}
         />
         <motion.rect
           x="44"
@@ -112,7 +112,7 @@ export default function DuckMascot({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' 
           height="2"
           fill="#5CE6A0"
           animate={{ opacity: [1, 0.3, 1] }}
-          transition={{ duration: 0.3, repeat: Infinity, delay: 0.1 }}
+          transition={{ duration: 0.8, repeat: Infinity, delay: 0.2 }}
         />
         <motion.rect
           x="48"
@@ -121,7 +121,7 @@ export default function DuckMascot({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' 
           height="2"
           fill="#FF4DA6"
           animate={{ opacity: [1, 0.3, 1] }}
-          transition={{ duration: 0.3, repeat: Infinity, delay: 0.2 }}
+          transition={{ duration: 0.8, repeat: Infinity, delay: 0.4 }}
         />
         <motion.rect
           x="42"
@@ -130,7 +130,7 @@ export default function DuckMascot({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' 
           height="2"
           fill="#FFFFFF"
           animate={{ opacity: [1, 0.3, 1] }}
-          transition={{ duration: 0.3, repeat: Infinity, delay: 0.15 }}
+          transition={{ duration: 0.8, repeat: Infinity, delay: 0.3 }}
         />
         <motion.rect
           x="46"
@@ -139,7 +139,7 @@ export default function DuckMascot({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' 
           height="2"
           fill="#FFFFFF"
           animate={{ opacity: [1, 0.3, 1] }}
-          transition={{ duration: 0.3, repeat: Infinity, delay: 0.25 }}
+          transition={{ duration: 0.8, repeat: Infinity, delay: 0.5 }}
         />
       </svg>
     </motion.div>

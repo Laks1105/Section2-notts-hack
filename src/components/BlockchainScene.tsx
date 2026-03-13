@@ -73,7 +73,7 @@ function Tetrahedron({ onClick }: { onClick?: () => void }) {
 
       {vertices.map((v, i) => (
         <mesh key={i} position={v}>
-          <sphereGeometry args={[0.1, 16, 16]} />
+          <sphereGeometry args={[0.1, 8, 8]} />
           <meshBasicMaterial
             color={i % 2 === 0 ? ACCENT_PINK : ACCENT_MINT}
             transparent
@@ -212,7 +212,7 @@ function ConnectionLines() {
 
   const connections = useMemo(() => {
     const lines = [];
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 8; i++) {
       const start = new THREE.Vector3(
         (Math.random() - 0.5) * 15,
         (Math.random() - 0.5) * 15,
@@ -262,8 +262,8 @@ function Scene({ onBlockConfirm }: { onBlockConfirm?: () => void }) {
       <pointLight position={[-10, -10, -10]} intensity={0.5} color={ACCENT_MINT} />
 
       <Tetrahedron onClick={onBlockConfirm} />
-      <FloatingNodes count={100} />
-      <SmallTetrahedrons count={12} />
+      <FloatingNodes count={40} />
+      <SmallTetrahedrons count={6} />
       <ConnectionLines />
 
       <OrbitControls

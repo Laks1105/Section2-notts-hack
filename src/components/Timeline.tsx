@@ -96,7 +96,8 @@ export default function TimelineSection() {
         <motion.h2
           className="font-pixel text-2xl md:text-4xl text-center mb-12 text-white"
           initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           TIMELINE

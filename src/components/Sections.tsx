@@ -10,8 +10,9 @@ import { CalendarDays, Users, Trophy, UtensilsCrossed, Instagram, TrainFront, Ca
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.6 },
 };
 
 export function AboutSection() {
@@ -513,7 +514,7 @@ export function SponsorsSection() {
   ];
 
   const goldSponsors = [
-    { name: 'HackQuest', icon: '/hackquest-logo.svg', bgClass: '', invert: true, url: 'https://www.hackquest.io/' },
+    { name: 'HackQuest', icon: '/hackquest-logo-white.png', bgClass: '', invert: false, url: 'https://www.hackquest.io/' },
   ];
 
   const communitySponsors = [

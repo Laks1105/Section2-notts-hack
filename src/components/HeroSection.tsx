@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, Suspense } from 'react';
+import { useState, useCallback, useEffect, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { DvdScreensaver } from 'react-dvd-screensaver';
@@ -22,6 +22,11 @@ export default function HeroSection() {
   const [blockConfirmed, setBlockConfirmed] = useState(false);
   const [dvdMode, setDvdMode] = useState(false);
   const [logoHue, setLogoHue] = useState(0);
+  const [windowSize, setWindowSize] = useState({ w: 1920, h: 1080 });
+
+  useEffect(() => {
+    setWindowSize({ w: window.innerWidth, h: window.innerHeight });
+  }, []);
 
   const handleImpact = useCallback((count: number) => {
     setLogoHue(count % DVD_COLORS.length);
@@ -37,35 +42,19 @@ export default function HeroSection() {
       {/* Halftone overlay */}
       <div className="absolute inset-0 halftone-overlay pointer-events-none z-[1]" />
 
-      {/* Decorative asterisks */}
-      <motion.div
-        className="absolute top-10 left-10 text-6xl md:text-8xl text-[#FF4DA6] font-bold opacity-60 select-none"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-      >
+      {/* Decorative asterisks — CSS animations for performance */}
+      <div className="absolute top-10 left-10 text-6xl md:text-8xl text-[#FF4DA6] font-bold opacity-60 select-none animate-[spin_20s_linear_infinite]">
         ✱
-      </motion.div>
-      <motion.div
-        className="absolute bottom-10 right-10 text-6xl md:text-8xl text-[#5CE6A0] font-bold opacity-60 select-none"
-        animate={{ rotate: -360 }}
-        transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
-      >
+      </div>
+      <div className="absolute bottom-10 right-10 text-6xl md:text-8xl text-[#5CE6A0] font-bold opacity-60 select-none animate-[spin_25s_linear_infinite_reverse]">
         ✱
-      </motion.div>
-      <motion.div
-        className="absolute top-1/4 right-20 text-4xl md:text-6xl text-[#FF4DA6] font-bold opacity-40 select-none hidden md:block"
-        animate={{ rotate: 180, scale: [1, 1.2, 1] }}
-        transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
-      >
+      </div>
+      <div className="absolute top-1/4 right-20 text-4xl md:text-6xl text-[#FF4DA6] font-bold opacity-40 select-none hidden md:block animate-[spin_15s_linear_infinite]">
         ✱
-      </motion.div>
-      <motion.div
-        className="absolute bottom-1/4 left-20 text-4xl md:text-6xl text-[#5CE6A0] font-bold opacity-40 select-none hidden md:block"
-        animate={{ rotate: -180, scale: [1, 1.1, 1] }}
-        transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
-      >
+      </div>
+      <div className="absolute bottom-1/4 left-20 text-4xl md:text-6xl text-[#5CE6A0] font-bold opacity-40 select-none hidden md:block animate-[spin_18s_linear_infinite_reverse]">
         ✱
-      </motion.div>
+      </div>
 
       {/* 3D Canvas */}
       <div className="absolute inset-0 z-0">
@@ -121,11 +110,18 @@ export default function HeroSection() {
           <span className="font-mono text-[10px] md:text-xs text-white/50 tracking-widest uppercase">
             powered by
           </span>
-          <img
-            src="/CCACCLogo.svg"
-            alt="CCACC Logo"
-            className="w-24 h-auto md:w-36 object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
-          />
+          <div className="flex items-center gap-4 md:gap-6">
+            <img
+              src="/CCACCLogo.svg"
+              alt="CCACC Logo"
+              className="w-20 h-auto md:w-28 object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+            />
+            <img
+              src="/founding-sponsor-2.png"
+              alt="Fableration Logo"
+              className="w-20 h-auto md:w-28 object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+            />
+          </div>
         </motion.div>
 
         {/* Block Confirmed Toast */}
@@ -183,9 +179,9 @@ export default function HeroSection() {
               speed={3}
               impactCallback={handleImpact}
               // @ts-expect-error - width/height accept numbers at runtime
-              width={typeof window !== 'undefined' ? window.innerWidth : 1920}
+              width={windowSize.w}
               // @ts-expect-error - width/height accept numbers at runtime
-              height={typeof window !== 'undefined' ? window.innerHeight : 1080}
+              height={windowSize.h}
             >
               <img
                 src="/NottsHack23.png"

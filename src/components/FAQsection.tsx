@@ -1,8 +1,5 @@
 'use client';
 
-import { Suspense } from 'react';
-import BlockchainScene2 from './BlockchainScene2';
-
 import { useState } from 'react';
 
 
@@ -74,14 +71,7 @@ export default function FAQSection() {
   const rightFaqs = faqs.filter((_, i) => i % 2 === 1);
 
   return (
-    <section id="faq" className="relative min-h-screen w-full bg-gradient-to-b from-[#5D4777] to-[#5D4777] text-white px-6 py-20 overflow-hidden">
-      {/* Background animation */}
-      <div className="absolute inset-0 z-0">
-        <Suspense fallback={null}>
-          <BlockchainScene2 />
-        </Suspense>
-      </div>
-
+    <section id="faq" className="relative w-full text-white px-6 py-20 overflow-hidden">
       <div className="relative z-10 max-w-4xl mx-auto">
 
 
@@ -99,7 +89,7 @@ export default function FAQSection() {
               const index = faqs.findIndex(f => f === faq);
 
               return (
-                <div key={index} className="bg-[#2a2338] border border-white/10 rounded-2xl shadow-lg transition hover:shadow-[0_0_25px_rgba(255,77,166,0.4)]">
+                <div key={index} className="bg-[#2a2338] border border-white/10 rounded-xl shadow-lg transition hover:shadow-[0_0_25px_rgba(255,77,166,0.4)]">
                   <button
                     onClick={() => setOpen(open === index ? null : index)}
                     className="w-full text-left px-6 py-3 flex justify-between items-center"

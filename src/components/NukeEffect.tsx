@@ -24,7 +24,6 @@ export default function NukeEffect() {
   const runNuke = useCallback(async (x: number, y: number) => {
     if (running.current) return;
     running.current = true;
-    document.documentElement.style.overflow = 'hidden';
     setOrigin({ x, y });
     setActive(true);
 
@@ -32,7 +31,6 @@ export default function NukeEffect() {
     window.location.href = REGISTRATION_URL;
 
     await sleep(1000);
-    document.documentElement.style.overflow = '';
     setActive(false);
     running.current = false;
   }, []);

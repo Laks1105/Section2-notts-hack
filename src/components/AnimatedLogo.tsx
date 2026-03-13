@@ -6,7 +6,7 @@ const logoColors = ['#FF4DA6', '#FFFFFF', '#5CE6A0', '#FF4DA6', '#FFFFFF', '#5CE
 
 export default function AnimatedLogo() {
   const letters = 'NOTTS HACK'.split('');
-  
+
   return (
     <div className="flex flex-wrap justify-center items-center gap-1 md:gap-2">
       {letters.map((letter, index) => (
@@ -24,24 +24,14 @@ export default function AnimatedLogo() {
             `,
           }}
           initial={{ opacity: 0, y: -50 }}
-          animate={{ 
-            opacity: 1, 
-            y: 0,
-            color: logoColors,
-          }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{
             opacity: { duration: 0.5, delay: index * 0.1 },
             y: { duration: 0.5, delay: index * 0.1 },
-            color: {
-              duration: 3,
-              repeat: Infinity,
-              repeatType: 'loop',
-              delay: index * 0.2,
-            }
           }}
           whileHover={{
             scale: 1.2,
-            transition: { duration: 0.2 }
+            transition: { duration: 0.2 },
           }}
         >
           {letter === ' ' ? '\u00A0' : letter}

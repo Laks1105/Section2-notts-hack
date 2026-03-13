@@ -133,17 +133,28 @@ const DLFrameReveal: React.FC = () => {
       />
       <div
         ref={logoRef}
-        className="relative z-10 flex flex-col items-center justify-center pointer-events-none transition-opacity duration-75"
+        className="relative z-10 flex flex-col items-center justify-center transition-opacity duration-75"
         style={{ opacity: 0 }}
       >
         <h3 className="font-pixel text-[#FF4DA6] text-xl md:text-2xl mb-8 tracking-widest text-center drop-shadow-[0_0_8px_rgba(255,77,166,0.6)]">
-          FOUNDING SPONSOR
+          FOUNDING SPONSORS
         </h3>
-        <img 
-          src="/CCACCLogo.svg" 
-          alt="CCACC Logo" 
-          className="w-48 md:w-72 h-auto object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
-        />
+        <div className="flex items-center justify-center gap-10 md:gap-16">
+          <a href="https://www.ccacc.io/" target="_blank" rel="noopener noreferrer" className="transition-transform duration-200 hover:scale-110">
+            <img 
+              src="/CCACCLogo.svg" 
+              alt="CCACC Logo" 
+              className="w-36 md:w-56 h-auto object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+            />
+          </a>
+          <a href="https://www.fableration.com/" target="_blank" rel="noopener noreferrer" className="transition-transform duration-200 hover:scale-110">
+            <img 
+              src="/founding-sponsor-2.png" 
+              alt="Fableration Logo" 
+              className="w-36 md:w-56 h-auto object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+            />
+          </a>
+        </div>
       </div>
     </div>
   );
