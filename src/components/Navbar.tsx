@@ -122,10 +122,10 @@ export default function Navbar() {
         </div>
 
         {/* Mobile: logo + hamburger */}
-        <div className="flex md:hidden items-center justify-between h-16 px-4">
+        <div className="flex md:hidden items-center justify-between h-14 min-h-[56px] px-4 pt-[env(safe-area-inset-top)]">
           <motion.a
             href="#"
-            className="flex items-center"
+            className="flex items-center min-h-[44px] min-w-[44px]"
             style={{ pointerEvents: scrolled ? 'auto' : 'none' }}
             animate={{
               opacity: scrolled ? 1 : 0,
@@ -133,14 +133,14 @@ export default function Navbar() {
             }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
           >
-            <img src="/NottsHack23.png" alt="Notts Hack" className="h-8 w-auto object-contain" />
+            <img src="/NottsHack23.png" alt="Notts Hack" className="h-7 w-auto object-contain" />
           </motion.a>
           <button
             onClick={() => setMobileOpen((v) => !v)}
-            className="text-white p-2"
+            className="text-white p-3 min-h-[44px] min-w-[44px] flex items-center justify-center -mr-1"
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </motion.nav>
@@ -163,7 +163,7 @@ export default function Navbar() {
 
             {/* Menu panel */}
             <motion.div
-              className="absolute top-16 left-0 right-0 border-t border-white/10"
+              className="absolute top-14 left-0 right-0 border-t border-white/10 max-h-[calc(100vh-3.5rem)] overflow-y-auto pb-[env(safe-area-inset-bottom)]"
               style={{
                 background: 'rgba(45, 30, 65, 0.98)',
               }}
@@ -177,7 +177,7 @@ export default function Navbar() {
                   <motion.a
                     key={link.href}
                     href={link.href}
-                    className="font-pixel text-[11px] tracking-widest text-white/70 hover:text-white hover:bg-white/5 px-6 py-4 transition-colors"
+                    className="font-pixel text-[11px] tracking-widest text-white/70 hover:text-white hover:bg-white/5 px-6 py-4 min-h-[48px] flex items-center transition-colors"
                     initial={{ opacity: 0, x: -16 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.05, duration: 0.2 }}
@@ -188,10 +188,10 @@ export default function Navbar() {
                 ))}
 
                 {/* Register button */}
-                <div className="px-6 pt-4 pb-2">
+                <div className="px-6 pt-4 pb-4">
                   <a
                     href="#register"
-                    className="block text-center font-pixel text-[10px] tracking-widest py-3 rounded-full border-2"
+                    className="block text-center font-pixel text-[10px] tracking-widest py-3.5 min-h-[48px] flex items-center justify-center rounded-full border-2"
                     style={{ borderColor: '#5CE6A0', color: '#5CE6A0' }}
                     onClick={() => setMobileOpen(false)}
                   >

@@ -64,7 +64,7 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center justify-center pt-10">
+      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center justify-center pt-6 pb-4 sm:pt-10">
         {/* CSS Presents Badge */}
         <motion.div
           className="inline-block mb-6"
@@ -72,7 +72,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <span className="font-mono text-xs md:text-sm font-bold tracking-[0.25em] uppercase text-white/80 border border-white/20 px-4 py-1.5 rounded-full">
+          <span className="font-mono text-[10px] sm:text-xs md:text-sm font-bold tracking-[0.2em] sm:tracking-[0.25em] uppercase text-white/80 border border-white/20 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full">
             UNM CSS presents
           </span>
         </motion.div>
@@ -90,7 +90,7 @@ export default function HeroSection() {
 
         {/* Tagline */}
         <motion.p
-          className="font-mono text-lg md:text-2xl text-white/90 mt-6 mb-8"
+          className="font-mono text-base sm:text-lg md:text-2xl text-white/90 mt-4 mb-6 sm:mt-6 sm:mb-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
@@ -105,21 +105,21 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="mb-8 flex flex-col items-center gap-1"
+          className="mb-6 sm:mb-8 flex flex-col items-center gap-2 sm:gap-1"
         >
           <span className="font-mono text-[10px] md:text-xs text-white/50 tracking-widest uppercase">
             powered by
           </span>
-          <div className="flex items-center gap-4 md:gap-6">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 md:gap-6">
             <img
               src="/CCACCLogo.svg"
               alt="CCACC Logo"
-              className="w-20 h-auto md:w-28 object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+              className="w-16 h-auto sm:w-20 md:w-28 object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
             />
             <img
               src="/founding-sponsor-2.png"
               alt="Fableration Logo"
-              className="w-20 h-auto md:w-28 object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+              className="w-16 h-auto sm:w-20 md:w-28 object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
             />
           </div>
         </motion.div>
@@ -140,24 +140,24 @@ export default function HeroSection() {
 
         {/* CTA Buttons */}
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center w-full max-w-[280px] sm:max-w-none mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1 }}
         >
           <motion.button
             onClick={(e) => { e.preventDefault(); triggerNukeEvent(e); }}
-            className="btn-primary font-pixel text-xs md:text-sm px-8 py-4 rounded-full cursor-pointer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="btn-primary font-pixel text-xs md:text-sm px-6 py-3.5 sm:px-8 sm:py-4 rounded-full cursor-pointer min-h-[48px]"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
             REGISTER NOW
           </motion.button>
           <motion.a
             href="#about"
-            className="font-pixel text-xs md:text-sm px-8 py-4 rounded-full border-2 border-white/30 text-white hover:border-[#FF4DA6] hover:text-[#FF4DA6] transition-colors"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="font-pixel text-xs md:text-sm px-6 py-3.5 sm:px-8 sm:py-4 rounded-full border-2 border-white/30 text-white hover:border-[#FF4DA6] hover:text-[#FF4DA6] transition-colors text-center min-h-[48px] flex items-center justify-center"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
             LEARN MORE
           </motion.a>
@@ -199,7 +199,7 @@ export default function HeroSection() {
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+        className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-10"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >

@@ -91,10 +91,10 @@ const itemVariants = {
 
 export default function TimelineSection() {
   return (
-    <section id="timeline" className="py-20 px-4 relative z-10">
+    <section id="timeline" className="py-12 sm:py-16 md:py-20 px-4 relative z-10">
       <div className="max-w-5xl mx-auto">
         <motion.h2
-          className="font-pixel text-2xl md:text-4xl text-center mb-12 text-white"
+          className="font-pixel text-xl sm:text-2xl md:text-4xl text-center mb-8 md:mb-12 text-white"
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -114,13 +114,13 @@ export default function TimelineSection() {
             <motion.div
               key={phaseIdx}
               variants={phaseVariants}
-              className="card-dark p-6 md:p-8"
+              className="card-dark p-4 sm:p-6 md:p-8"
               style={{ borderColor: `${phase.tagColor}30` }}
             >
               {/* Phase header */}
               <div className="flex items-start justify-between gap-3 mb-4">
                 <div>
-                  <h3 className="font-pixel text-xs md:text-sm text-white leading-relaxed mb-1">
+                  <h3 className="font-pixel text-[10px] sm:text-xs md:text-sm text-white leading-relaxed mb-1 break-words">
                     {phase.label}
                   </h3>
                   <p className="font-mono text-white/60 text-xs">
@@ -153,19 +153,19 @@ export default function TimelineSection() {
                     key={eventIdx}
                     variants={itemVariants}
                     className={`
-                      group flex items-start gap-3 py-2.5 px-3 rounded-lg
+                      group flex items-start gap-2 sm:gap-3 py-2 sm:py-2.5 px-2 sm:px-3 rounded-lg
                       transition-colors duration-200 hover:bg-white/[0.06]
                       ${event.highlight ? 'bg-white/[0.04]' : ''}
                     `}
                   >
                     {/* Time */}
-                    <span className="font-mono text-xs text-[#B8AEC9] w-28 shrink-0 pt-[2px] tabular-nums">
+                    <span className="font-mono text-[10px] sm:text-xs text-[#B8AEC9] w-20 sm:w-28 shrink-0 pt-[2px] tabular-nums">
                       {event.time}
                     </span>
 
                     {/* Content */}
                     <div className="flex-1 min-w-0">
-                      <p className={`font-mono text-sm leading-snug ${
+                      <p className={`font-mono text-xs sm:text-sm leading-snug ${
                         event.highlight ? 'font-bold' : 'text-white/80'
                       }`}
                         style={event.highlight ? { color: phase.tagColor } : undefined}

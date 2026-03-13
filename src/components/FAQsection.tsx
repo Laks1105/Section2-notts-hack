@@ -71,17 +71,16 @@ export default function FAQSection() {
   const rightFaqs = faqs.filter((_, i) => i % 2 === 1);
 
   return (
-    <section id="faq" className="relative w-full text-white px-6 py-20 overflow-hidden">
+    <section id="faq" className="relative w-full text-white px-4 sm:px-6 py-12 sm:py-16 md:py-20 overflow-hidden">
       <div className="relative z-10 max-w-4xl mx-auto">
 
-
-        <h2 className="font-pixel text-3xl md:text-4xl text-center mb-12">
+        <h2 className="font-pixel text-xl sm:text-2xl md:text-4xl text-center mb-8 md:mb-12">
           <span>FREQUENTLY</span>{' '}
           <span className="text-pink-400">ASKED</span>{' '}
           <span>QUESTIONS</span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
 
           {/* LEFT COLUMN */}
           <div className="space-y-6">
@@ -92,16 +91,16 @@ export default function FAQSection() {
                 <div key={index} className="bg-[#2a2338] border border-white/10 rounded-xl shadow-lg transition hover:shadow-[0_0_25px_rgba(255,77,166,0.4)]">
                   <button
                     onClick={() => setOpen(open === index ? null : index)}
-                    className="w-full text-left px-6 py-3 flex justify-between items-center"
+                    className="w-full text-left px-4 sm:px-6 py-3 min-h-[52px] flex justify-between items-center gap-2"
                   >
-                    <span className="font-mono font-bold text-lg text-white/90 leading-relaxed mb-6">{faq.q}</span>
+                    <span className="font-mono font-bold text-sm sm:text-base md:text-lg text-white/90 leading-snug">{faq.q}</span>
                     <span className="text-pink-400 text-xl">
                       {open === index ? '−' : '+'}
                     </span>
                   </button>
 
                   {open === index && (
-                    <div className="px-6 pb-6 text-white/80 font-mono">
+                    <div className="px-4 sm:px-6 pb-4 sm:pb-6 text-white/80 font-mono text-xs sm:text-sm">
                       {faq.a}
                     </div>
                   )}
@@ -111,7 +110,7 @@ export default function FAQSection() {
           </div>
 
           {/* RIGHT COLUMN */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {rightFaqs.map((faq) => {
               const index = faqs.findIndex(f => f === faq);
 
@@ -119,16 +118,16 @@ export default function FAQSection() {
                 <div key={index} className="bg-[#2a2338] border border-white/10 rounded-xl shadow-lg hover:shadow-[0_0_25px_rgba(255,77,166,0.4)] transition">
                   <button
                     onClick={() => setOpen(open === index ? null : index)}
-                    className="w-full text-left px-6 py-3 flex justify-between items-center"
+                    className="w-full text-left px-4 sm:px-6 py-3 min-h-[52px] flex justify-between items-center gap-2"
                   >
-                    <span className="font-mono font-bold text-lg text-white/90 leading-relaxed mb-6">{faq.q}</span>
+                    <span className="font-mono font-bold text-sm sm:text-base md:text-lg text-white/90 leading-snug">{faq.q}</span>
                     <span className="text-pink-400 text-xl">
                       {open === index ? '−' : '+'}
                     </span>
                   </button>
 
                   {open === index && (
-                    <div className="px-6 pb-6 text-white/80 font-mono">
+                    <div className="px-4 sm:px-6 pb-4 sm:pb-6 text-white/80 font-mono text-xs sm:text-sm">
                       {faq.a}
                     </div>
                   )}

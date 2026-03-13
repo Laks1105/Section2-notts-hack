@@ -124,7 +124,7 @@ const DLFrameReveal: React.FC = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full max-w-3xl mx-auto aspect-video my-16 flex items-center justify-center">
+    <div ref={containerRef} className="relative w-full max-w-3xl mx-auto aspect-video my-10 md:my-16 flex items-center justify-center px-2">
       <canvas
         ref={canvasRef}
         width={800}
@@ -136,22 +136,22 @@ const DLFrameReveal: React.FC = () => {
         className="relative z-10 flex flex-col items-center justify-center transition-opacity duration-75"
         style={{ opacity: 0 }}
       >
-        <h3 className="font-pixel text-[#FF4DA6] text-xl md:text-2xl mb-8 tracking-widest text-center drop-shadow-[0_0_8px_rgba(255,77,166,0.6)]">
+        <h3 className="font-pixel text-[#FF4DA6] text-sm sm:text-xl md:text-2xl mb-4 sm:mb-8 tracking-widest text-center drop-shadow-[0_0_8px_rgba(255,77,166,0.6)]">
           FOUNDING SPONSORS
         </h3>
-        <div className="flex items-center justify-center gap-10 md:gap-16">
-          <a href="https://www.ccacc.io/" target="_blank" rel="noopener noreferrer" className="transition-transform duration-200 hover:scale-110">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-10 md:gap-16">
+          <a href="https://www.ccacc.io/" target="_blank" rel="noopener noreferrer" className="transition-transform duration-200 hover:scale-110 active:scale-105">
             <img 
               src="/CCACCLogo.svg" 
               alt="CCACC Logo" 
-              className="w-36 md:w-56 h-auto object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+              className="w-24 sm:w-36 md:w-56 h-auto object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
             />
           </a>
-          <a href="https://www.fableration.com/" target="_blank" rel="noopener noreferrer" className="transition-transform duration-200 hover:scale-110">
+          <a href="https://www.fableration.com/" target="_blank" rel="noopener noreferrer" className="transition-transform duration-200 hover:scale-110 active:scale-105">
             <img 
               src="/founding-sponsor-2.png" 
               alt="Fableration Logo" 
-              className="w-36 md:w-56 h-auto object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+              className="w-24 sm:w-36 md:w-56 h-auto object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
             />
           </a>
         </div>

@@ -25,28 +25,28 @@ export function AboutSection() {
   ];
 
   return (
-    <section id="about" className="py-20 px-4 relative z-10">
+    <section id="about" className="py-12 sm:py-16 md:py-20 px-4 relative z-10">
       <div className="max-w-5xl mx-auto">
         <motion.h2
-          className="font-pixel text-2xl md:text-4xl text-center mb-4 text-white"
+          className="font-pixel text-xl sm:text-2xl md:text-4xl text-center mb-4 text-white"
           {...fadeInUp}
         >
           ABOUT NOTTS HACK
         </motion.h2>
         {/* Main description */}
         <motion.div
-          className="card-dark p-8 md:p-10 mb-8"
+          className="card-dark p-5 sm:p-6 md:p-10 mb-6 md:mb-8"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="font-mono text-base md:text-lg text-white/90 leading-relaxed mb-5">
+          <p className="font-mono text-sm sm:text-base md:text-lg text-white/90 leading-relaxed mb-4 md:mb-5">
             <span className="text-[#5CE6A0] font-bold">NottsHack 2026</span> is a six-day blockchain
             and cryptocurrency hackathon hosted by the{' '}
             <span className="text-[#FF4DA6]">Computer Science Society</span> at
             the University of Nottingham Malaysia.
           </p>
-          <p className="font-mono text-base md:text-lg text-white/90 leading-relaxed mb-5">
+          <p className="font-mono text-sm sm:text-base md:text-lg text-white/90 leading-relaxed mb-4 md:mb-5">
             Form a team of 3-5 and tackle industry-defined challenges across two sponsor tracks,
             with mentorship sessions, workshops, and hands-on guidance from industry professionals
             throughout the event.
@@ -60,11 +60,11 @@ export function AboutSection() {
         </motion.div>
 
         {/* Stat highlights */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-6 md:mb-8">
           {highlights.map((item, index) => (
             <motion.div
               key={item.label}
-              className="card-dark p-5 text-center"
+              className="card-dark p-3 sm:p-5 text-center"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -72,7 +72,7 @@ export function AboutSection() {
               whileHover={{ scale: 1.05, boxShadow: `0 0 25px ${item.color}30` }}
             >
               <div className="mb-2 flex justify-center" style={{ color: item.color }}>{item.icon}</div>
-              <p className="font-pixel text-sm md:text-base" style={{ color: item.color }}>
+              <p className="font-pixel text-xs sm:text-sm md:text-base" style={{ color: item.color }}>
                 {item.label}
               </p>
               <p className="font-mono text-white/60 text-xs mt-1">{item.detail}</p>
@@ -80,15 +80,15 @@ export function AboutSection() {
           ))}
         </div>
 
-        <div className="mt-8 mb-8">
-          <p className="text-center text-white/80 mb-4 font-mono">Countdown to Hacking</p>
+        <div className="mt-6 mb-6 md:mt-8 md:mb-8">
+          <p className="text-center text-white/80 mb-3 md:mb-4 font-mono text-sm sm:text-base">Countdown to Hacking</p>
           <CountdownTimer targetDate={hackathonStart} />
         </div>
 
         {/* Event format breakdown */}
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 gap-3 md:gap-4">
           <motion.div
-            className="card-dark p-6 border-l-2 border-[#5CE6A0]/50"
+            className="card-dark p-4 sm:p-6 border-l-2 border-[#5CE6A0]/50"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -104,7 +104,7 @@ export function AboutSection() {
             </ul>
           </motion.div>
           <motion.div
-            className="card-dark p-6 border-l-2 border-[#FF4DA6]/50"
+            className="card-dark p-4 sm:p-6 border-l-2 border-[#FF4DA6]/50"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -129,16 +129,16 @@ export function GettingThereSection() {
   const mapsUrl = "https://maps.app.goo.gl/9h91izM5ppdMjQPU7";
 
   return (
-    <section id="getting-there" className="py-20 px-4 relative z-10">
+    <section id="getting-there" className="py-12 sm:py-16 md:py-20 px-4 relative z-10">
       <div className="max-w-5xl mx-auto">
         <motion.h2
-          className="font-pixel text-2xl md:text-4xl text-center mb-10 text-white"
+          className="font-pixel text-xl sm:text-2xl md:text-4xl text-center mb-6 md:mb-10 text-white"
           {...fadeInUp}
         >
           GETTING THERE
         </motion.h2>
         <motion.p
-          className="text-center font-mono text-white/70 text-sm max-w-2xl mx-auto mb-10"
+          className="text-center font-mono text-white/70 text-xs sm:text-sm max-w-2xl mx-auto mb-6 md:mb-10 px-1"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -153,7 +153,7 @@ export function GettingThereSection() {
               href={mapsUrl}
               target="_blank"
               rel="noreferrer"
-              className="card-dark p-5 flex items-center gap-4 group hover:border-[#5CE6A0]/40 transition-colors"
+              className="card-dark p-4 sm:p-5 flex items-center gap-3 sm:gap-4 group hover:border-[#5CE6A0]/40 transition-colors min-h-[56px]"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -172,7 +172,7 @@ export function GettingThereSection() {
               href={mapsUrl}
               target="_blank"
               rel="noreferrer"
-              className="card-dark p-5 flex items-center gap-4 group hover:border-[#FF4DA6]/40 transition-colors"
+              className="card-dark p-4 sm:p-5 flex items-center gap-3 sm:gap-4 group hover:border-[#FF4DA6]/40 transition-colors min-h-[56px]"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -191,7 +191,7 @@ export function GettingThereSection() {
           </div>
 
           <motion.div
-            className="card-dark overflow-hidden min-h-[280px]"
+            className="card-dark overflow-hidden min-h-[220px] sm:min-h-[280px]"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -286,19 +286,19 @@ export function TracksSection() {
 
   return (
 
-    <section id="tracks" className="py-20 px-4 relative z-10">
+    <section id="tracks" className="py-12 sm:py-16 md:py-20 px-4 relative z-10">
 
       <div className="max-w-6xl mx-auto">
 
-        <h2 className="font-pixel text-2xl md:text-4xl text-center mb-4 text-white">
+        <h2 className="font-pixel text-xl sm:text-2xl md:text-4xl text-center mb-2 md:mb-4 text-white">
           TRACKS & CHALLENGES
         </h2>
 
-        <p className="text-center text-[#5CE6A0] font-pixel text-sm mb-16">
+        <p className="text-center text-[#5CE6A0] font-pixel text-xs sm:text-sm mb-8 md:mb-16">
           Choose your path
         </p>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-start">
 
           {/* LEFT SIDE TRACK LIST */}
 
@@ -312,8 +312,9 @@ export function TracksSection() {
                 <motion.div
                   key={track.title}
                   onClick={() => setActiveTrack(track)}
-                  whileHover={{ scale: 1.03 }}
-                  className="cursor-pointer card-dark p-6 transition-all"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.99 }}
+                  className="cursor-pointer card-dark p-4 sm:p-6 transition-all min-h-[60px] flex items-center"
                   style={{
                     border: isActive
                       ? `1px solid ${track.color}`
@@ -363,7 +364,7 @@ export function TracksSection() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -40 }}
                 transition={{ duration: 0.35 }}
-                className="card-dark p-8 max-h-[520px] overflow-y-auto"
+                className="card-dark p-4 sm:p-6 md:p-8 max-h-[min(70vh,420px)] sm:max-h-[520px] overflow-y-auto"
               >
 
                 {/* HEADER */}
@@ -523,10 +524,10 @@ export function SponsorsSection() {
   ];
 
   return (
-    <section id="sponsors" className="py-20 px-4 relative z-10">
+    <section id="sponsors" className="py-12 sm:py-16 md:py-20 px-4 relative z-10">
       <div className="max-w-5xl mx-auto">
         <motion.h2
-          className="font-pixel text-2xl md:text-4xl text-center mb-12 text-white"
+          className="font-pixel text-xl sm:text-2xl md:text-4xl text-center mb-8 md:mb-12 text-white"
           {...fadeInUp}
         >
           SPONSORS & PARTNERS
@@ -543,7 +544,7 @@ export function SponsorsSection() {
         >
           Diamond Sponsors
         </motion.p>
-        <div className="flex flex-wrap justify-center items-center gap-10 max-w-3xl mx-auto mb-14">
+        <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 max-w-3xl mx-auto mb-10 md:mb-14">
           {diamondSponsors.map((sponsor, index) => (
             <motion.div
               key={sponsor.name}
@@ -554,7 +555,7 @@ export function SponsorsSection() {
               transition={{ delay: index * 0.1 }}
               whileHover={{ scale: 1.1 }}
             >
-              <a href={sponsor.url} target="_blank" rel="noopener noreferrer" className={`h-24 min-w-[120px] max-w-[200px] ${sponsor.bgClass} flex items-center justify-center overflow-hidden rounded-lg p-2`}>
+              <a href={sponsor.url} target="_blank" rel="noopener noreferrer" className={`h-16 sm:h-20 md:h-24 min-w-[90px] sm:min-w-[120px] max-w-[200px] ${sponsor.bgClass} flex items-center justify-center overflow-hidden rounded-lg p-2`}>
                 {sponsor.icon ? (
                   <img
                     src={sponsor.icon}
@@ -578,7 +579,7 @@ export function SponsorsSection() {
         >
           Gold Sponsors
         </motion.p>
-        <div className="flex flex-wrap justify-center items-center gap-8 max-w-2xl mx-auto mb-14">
+        <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-8 max-w-2xl mx-auto mb-10 md:mb-14">
           {goldSponsors.map((sponsor, index) => (
             <motion.div
               key={sponsor.name}
@@ -589,7 +590,7 @@ export function SponsorsSection() {
               transition={{ delay: index * 0.1 }}
               whileHover={{ scale: 1.1 }}
             >
-              <a href={sponsor.url} target="_blank" rel="noopener noreferrer" className={`h-14 max-w-[200px] ${sponsor.bgClass} flex items-center justify-center overflow-hidden rounded-lg`}>
+              <a href={sponsor.url} target="_blank" rel="noopener noreferrer" className={`h-12 sm:h-14 max-w-[180px] sm:max-w-[200px] ${sponsor.bgClass} flex items-center justify-center overflow-hidden rounded-lg p-1`}>
                 {sponsor.icon ? (
                   <img
                     src={sponsor.icon}
@@ -613,7 +614,7 @@ export function SponsorsSection() {
         >
           Community Partners
         </motion.p>
-        <div className="flex flex-wrap justify-center items-center gap-8 max-w-2xl mx-auto mb-10">
+        <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 max-w-2xl mx-auto mb-8 md:mb-10">
           {communitySponsors.map((sponsor, index) => (
             <motion.div
               key={sponsor.name}
@@ -624,7 +625,7 @@ export function SponsorsSection() {
               transition={{ delay: index * 0.1 }}
               whileHover={{ scale: 1.1 }}
             >
-              <div className={`h-12 ${sponsor.bgClass} flex items-center justify-center overflow-hidden rounded-lg`}>
+              <div className={`h-10 sm:h-12 max-w-[140px] sm:max-w-none ${sponsor.bgClass} flex items-center justify-center overflow-hidden rounded-lg px-2`}>
                 {sponsor.icon ? (
                   <img
                     src={sponsor.icon}
@@ -646,15 +647,15 @@ export function SponsorsSection() {
 
 export function Footer() {
   return (
-    <footer className="py-6 px-4 relative z-10 border-t border-white/10">
-      <div className="max-w-6xl mx-auto flex items-center justify-between">
-        <p className="font-mono text-xs text-white/40">
+    <footer className="py-4 sm:py-6 px-4 relative z-10 border-t border-white/10">
+      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p className="font-mono text-[10px] sm:text-xs text-white/40 text-center sm:text-left">
           © 2026 UNM CSS
         </p>
 
         <motion.a
           href="https://www.instagram.com/nottshack26"
-          className="w-10 h-10 card-dark flex items-center justify-center hover:bg-[#FF4DA6]/20 rounded-lg"
+          className="w-10 h-10 min-w-[44px] min-h-[44px] card-dark flex items-center justify-center hover:bg-[#FF4DA6]/20 rounded-lg"
           target="_blank"
           whileHover={{ scale: 1.1, y: -2 }}
           whileTap={{ scale: 0.95 }}

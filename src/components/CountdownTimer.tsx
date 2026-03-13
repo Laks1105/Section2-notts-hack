@@ -53,16 +53,16 @@ export default function CountdownTimer({ targetDate }: { targetDate: Date }) {
   ];
 
   return (
-    <div className="flex gap-3 md:gap-6 justify-center">
+    <div className="flex gap-2 sm:gap-3 md:gap-6 justify-center flex-wrap">
       {timeUnits.map((unit, index) => (
         <motion.div
           key={unit.label}
-          className="card-dark p-3 md:p-6 min-w-[60px] md:min-w-[100px] text-center"
+          className="card-dark p-2 sm:p-3 md:p-6 min-w-[56px] sm:min-w-[60px] md:min-w-[100px] text-center"
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: index * 0.1 }}
         >
-          <div className="font-pixel text-2xl md:text-4xl text-[#5CE6A0]">
+          <div className="font-pixel text-xl sm:text-2xl md:text-4xl text-[#5CE6A0]">
             {String(unit.value).padStart(2, '0')}
           </div>
           <div className="font-pixel text-[8px] md:text-xs text-[#FF4DA6] mt-2">

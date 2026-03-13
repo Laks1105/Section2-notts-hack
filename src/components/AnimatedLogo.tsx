@@ -8,11 +8,11 @@ export default function AnimatedLogo() {
   const letters = 'NOTTS HACK'.split('');
 
   return (
-    <div className="flex flex-wrap justify-center items-center gap-1 md:gap-2">
+    <div className="flex flex-wrap justify-center items-center gap-0.5 sm:gap-1 md:gap-2">
       {letters.map((letter, index) => (
         <motion.span
           key={index}
-          className="font-pixel text-3xl md:text-5xl lg:text-7xl"
+          className="font-pixel text-2xl sm:text-3xl md:text-5xl lg:text-7xl"
           style={{
             color: logoColors[index % logoColors.length],
             textShadow: `
