@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import CountdownTimer from './CountdownTimer';
 import DuckMascot from './DuckMascot';
 
@@ -224,95 +225,286 @@ export function GettingThereSection() {
   );
 }
 
+
+
 export function TracksSection() {
+
   const tracks = [
     {
-      title: 'DeFi Innovation',
-      description: 'Build decentralized finance solutions that reshape how we think about money and transactions.',
-      icon: '💰',
-      color: '#FF4DA6'
+      title: "BGA Track",
+      description:
+        "Build blockchain solutions that solve real-world problems for communities, businesses, and institutions.",
+      icon: "🌍",
+      color: "#FF4DA6",
+
+      details: {
+        organiser: "Blockchain for Good Alliance (BGA) founded by Bybit",
+        theme: "Blockchain for Real World Impact",
+        focus: [
+          "Financial inclusion",
+          "Transparent supply chains",
+          "Digital identity verification",
+          "Anti-fraud tools",
+          "Public digital infrastructure",
+          "Climate & environmental monitoring",
+        ],
+
+      requirement: "Working prototype/demo, explanation of the problem and solution, description of blockchain use, project presentation",
+      prize: "Total Prize Pool: $500",
+      link: "https://blockchainforgoodalliance.notion.site/BGA-Track-NottsHack-26-31dd27bbe9e580849c73cdae3215874e?pvs=143"
+      },
     },
+
     {
-      title: 'NFT & Digital Assets',
-      description: 'Create unique digital experiences with NFTs, from art to gaming and beyond.',
-      icon: '🎨',
-      color: '#5CE6A0'
+      title: "DCAI Track",
+      description:
+        "Create innovative applications using the DCAI ecosystem and L3 infrastructure on Base.",
+      icon: "🤖",
+      color: "#5CE6A0",
+
+      details: {
+        organiser: "DCAI",
+        theme: "Open Innovation Powered by DCAI",
+        focus: [
+          "Web apps",
+          "AI assistants",
+          "Games",
+          "Dashboards",
+          "Automation tools",
+          "Developer tools",
+          "Productivity apps",
+        ],
+        requirement:
+          "Must integrate at least one interaction with the L3 network (API, data access, or ecosystem interaction).",
+        prize: "Prize Pool: 300 USDT",
+      },
     },
-    {
-      title: 'DAO & Governance',
-      description: 'Design decentralized governance systems that empower communities.',
-      icon: '🏛️',
-      color: '#FF4DA6'
-    },
-    {
-      title: 'Infrastructure & Tools',
-      description: 'Build the foundational tools and infrastructure for the Web3 ecosystem.',
-      icon: '🔧',
-      color: '#5CE6A0'
-    }
   ];
 
-  return (
-    <section id="tracks" className="py-20 px-4 relative z-10">
-      <div className="max-w-6xl mx-auto">
-        <motion.h2
-          className="font-pixel text-2xl md:text-4xl text-center mb-4 text-white"
-          {...fadeInUp}
-        >
-          TRACKS & CHALLENGES
-        </motion.h2>
-        <motion.p
-          className="text-center text-[#5CE6A0] font-pixel text-sm mb-12"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          Choose your path
-        </motion.p>
+  const [activeTrack, setActiveTrack] = useState(tracks[0]);
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {tracks.map((track, index) => (
-            <motion.div
-              key={track.title}
-              className="card-dark p-6 md:p-8 group cursor-pointer"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{
-                scale: 1.02,
-                boxShadow: `0 0 40px ${track.color}40`
-              }}
-            >
-              <div className="flex items-start gap-4">
-                <span className="text-4xl">{track.icon}</span>
-                <div>
-                  <h3
-                    className="font-pixel text-sm md:text-base mb-3"
-                    style={{ color: track.color }}
-                  >
-                    {track.title}
-                  </h3>
-                  <p className="font-mono text-white/80 text-sm leading-relaxed">
-                    {track.description}
-                  </p>
-                </div>
-              </div>
+  return (
+
+    <section id="tracks" className="py-20 px-4 relative z-10">
+
+      <div className="max-w-6xl mx-auto">
+
+        <h2 className="font-pixel text-2xl md:text-4xl text-center mb-4 text-white">
+          TRACKS & CHALLENGES
+        </h2>
+
+        <p className="text-center text-[#5CE6A0] font-pixel text-sm mb-16">
+          Choose your path
+        </p>
+
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+
+          {/* LEFT SIDE TRACK LIST */}
+
+          <div className="flex flex-col gap-6">
+
+            {tracks.map((track, index) => {
+
+              const isActive = activeTrack.title === track.title;
+
+              return (
+                <motion.div
+                  key={track.title}
+                  onClick={() => setActiveTrack(track)}
+                  whileHover={{ scale: 1.03 }}
+                  className="cursor-pointer card-dark p-6 transition-all"
+                  style={{
+                    border: isActive
+                      ? `1px solid ${track.color}`
+                      : "1px solid rgba(255,255,255,0.1)"
+                  }}
+                >
+
+                  <div className="flex items-center gap-4">
+
+                    {/* NUMBER */}
+                    <div
+                      className="w-8 h-8 rounded-md flex items-center justify-center font-pixel text-xs"
+                      style={{
+                       border: `1px solid ${track.color}`,
+                      color: track.color
+                          }}
+                          >
+                           {index + 1}
+                          </div>
+
+                    {/* TITLE */}
+                    <h3
+                      className="font-pixel text-sm md:text-base"
+                      style={{ color: track.color }}
+                    >
+                      {track.title}
+                    </h3>
+
+                  </div>
+
+                </motion.div>
+              );
+            })}
+
+          </div>
+
+
+          {/* RIGHT SIDE INFO CARD */}
+
+          <div className="relative">
+
+            <AnimatePresence mode="wait">
 
               <motion.div
-                className="mt-4 h-1 rounded-full"
-                style={{ background: track.color }}
-                initial={{ width: 0 }}
-                whileHover={{ width: '100%' }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.div>
-          ))}
+                key={activeTrack.title}
+                initial={{ opacity: 0, x: 40 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -40 }}
+                transition={{ duration: 0.35 }}
+                className="card-dark p-8 max-h-[520px] overflow-y-auto"
+              >
+
+                {/* HEADER */}
+
+                <div className="flex items-start gap-3 mb-6">
+
+                  {/* EMOJI (NO BORDER) */}
+                  <div className="text-3xl mt-1">
+                    {activeTrack.icon}
+                  </div>
+
+                  <div>
+
+                    <h3
+                      className="font-pixel text-xl mb-2"
+                      style={{ color: activeTrack.color }}
+                    >
+                      {activeTrack.title}
+                    </h3>
+
+                    <p className="font-mono text-white/80 leading-relaxed">
+                      {activeTrack.description}
+                    </p>
+
+                  </div>
+
+                </div>
+
+
+                {/* PRIZE */}
+
+                <div className="mb-6">
+
+                  <span
+                    className="font-pixel text-xs px-4 py-2 rounded-full inline-block"
+                    style={{
+                      border: `1px solid ${activeTrack.color}`,
+                      color: activeTrack.color
+                    }}
+                  >
+                    💰 {activeTrack.details.prize}
+                  </span>
+
+                </div>
+
+
+                {/* PROGRESS BAR */}
+
+                <div className="w-full h-1 bg-white/10 rounded-full mb-6">
+
+                  <div
+                    className="h-1 rounded-full"
+                    style={{
+                      width: "65%",
+                      background: activeTrack.color
+                    }}
+                  />
+
+                </div>
+
+
+                {/* ORGANISER */}
+
+                <p className="font-mono text-sm text-white/70 mb-2">
+                  <span className="text-white">Organiser:</span>{" "}
+                  {activeTrack.details.organiser}
+                </p>
+
+
+                {/* THEME */}
+
+                <p className="font-mono text-sm text-white/70 mb-6">
+                  <span className="text-white">Theme:</span>{" "}
+                  {activeTrack.details.theme}
+                </p>
+
+
+                {/* KEY CHALLENGES */}
+
+                <div>
+
+                  <p className="font-pixel text-xs text-white/70 mb-3">
+                    Project Types:
+                  </p>
+
+                  <ul className="font-mono text-sm text-white/80 space-y-2">
+
+                    {activeTrack.details.focus.map((item, i) => (
+
+                      <li key={i} className="flex gap-2 items-start">
+                        <span style={{ color: activeTrack.color }}>•</span>
+                        {item}
+                      </li>
+
+                    ))}
+
+                  </ul>
+
+                </div>
+                
+                {/* REQUIREMENT */}
+
+                {activeTrack.details.requirement && (
+
+                  <p className="font-mono text-sm text-white/70 mt-6">
+                    <span className="text-white">Requirement:</span>{" "}
+                    {activeTrack.details.requirement}
+                  </p>
+
+                )}
+
+                  {/* BGA LINK */}
+                  {activeTrack.details.link && (
+                    <div className="mt-6">
+                      <a
+                        href={activeTrack.details.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-pixel text-xs"
+                        style={{ color: "#26ABD7" }}
+                      >
+                        View full BGA track details →
+                      </a>
+                    </div>
+                  )}
+
+
+              </motion.div>
+
+            </AnimatePresence>
+
+          </div>
+
         </div>
+
       </div>
+
     </section>
   );
 }
+
+
 
 export function SponsorsSection() {
   const diamondSponsors = [
