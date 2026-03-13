@@ -255,13 +255,15 @@ function ConnectionLines() {
 }
 
 function Scene({ onBlockConfirm }: { onBlockConfirm?: () => void }) {
+  const isTouchDevice = typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+
   return (
     <>
       <ambientLight intensity={0.2} />
       <pointLight position={[10, 10, 10]} intensity={0.5} color={ACCENT_PINK} />
       <pointLight position={[-10, -10, -10]} intensity={0.5} color={ACCENT_MINT} />
 
-      <Tetrahedron onClick={onBlockConfirm} />
+      <Tetrahedron onClick={isTouchDevice ? undefined : onBlockConfirm} />
       <FloatingNodes count={40} />
       <SmallTetrahedrons count={6} />
       <ConnectionLines />
@@ -269,6 +271,7 @@ function Scene({ onBlockConfirm }: { onBlockConfirm?: () => void }) {
       <OrbitControls
         enableZoom={false}
         enablePan={false}
+        enableRotate={!isTouchDevice}
         autoRotate
         autoRotateSpeed={0.3}
         maxPolarAngle={Math.PI * 0.75}
@@ -284,8 +287,10 @@ interface BlockchainSceneProps {
 }
 
 export default function BlockchainScene({ className = '', onBlockConfirm }: BlockchainSceneProps) {
+  const isTouchDevice = typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+
   return (
-    <div className={`w-full h-full ${className}`}>
+    <div className={`w-full h-full ${className}`} style={isTouchDevice ? { touchAction: 'auto', pointerEvents: 'none' } : undefined}>
       <Canvas
         camera={{ position: [0, 0, 6], fov: 60 }}
         gl={{ antialias: true, alpha: true }}
