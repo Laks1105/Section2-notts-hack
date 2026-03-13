@@ -139,19 +139,19 @@ const DLFrameReveal: React.FC = () => {
         <h3 className="font-pixel text-[#FF4DA6] text-sm sm:text-xl md:text-2xl mb-4 sm:mb-8 tracking-widest text-center drop-shadow-[0_0_8px_rgba(255,77,166,0.6)]">
           FOUNDING SPONSORS
         </h3>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-10 md:gap-16">
+        <div className="flex flex-row items-center justify-center gap-4 sm:gap-10 md:gap-16">
           <a href="https://www.ccacc.io/" target="_blank" rel="noopener noreferrer" className="transition-transform duration-200 hover:scale-110 active:scale-105">
-            <img 
-              src="/CCACCLogo.svg" 
-              alt="CCACC Logo" 
-              className="w-24 sm:w-36 md:w-56 h-auto object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+            <img
+              src="/CCACCLogo.svg"
+              alt="CCACC Logo"
+              className="w-20 sm:w-28 md:w-40 h-auto object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
             />
           </a>
           <a href="https://www.fableration.com/" target="_blank" rel="noopener noreferrer" className="transition-transform duration-200 hover:scale-110 active:scale-105">
-            <img 
-              src="/founding-sponsor-2.png" 
-              alt="Fableration Logo" 
-              className="w-24 sm:w-36 md:w-56 h-auto object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+            <img
+              src="/founding-sponsor-2.png"
+              alt="Fableration Logo"
+              className="w-20 sm:w-28 md:w-40 h-auto object-contain filter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
             />
           </a>
         </div>

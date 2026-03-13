@@ -458,7 +458,7 @@ export function TracksSection() {
 
 export function SponsorsSection() {
   const diamondSponsors = [
-    { name: 'DCAI', icon: '/DCAI_white.png', bgClass: '', url: 'https://dcai.ai/' },
+    { name: 'DCAI', icon: '/DCAI_white.png', bgClass: '', url: 'https://dcai.ai/', scale: 1.15 }, // compensate for untrimmed whitespace in logo
     { name: 'BGA', icon: '/BGA Logo -  (coloured).PNG', bgClass: '', url: 'https://chainforgood.org/' },
   ];
 
@@ -503,12 +503,13 @@ export function SponsorsSection() {
               transition={{ delay: index * 0.1 }}
               whileHover={{ scale: 1.1 }}
             >
-              <a href={sponsor.url} target="_blank" rel="noopener noreferrer" className={`h-16 sm:h-20 md:h-24 min-w-[90px] sm:min-w-[120px] max-w-[200px] ${sponsor.bgClass} flex items-center justify-center overflow-hidden rounded-lg p-2`}>
+              <a href={sponsor.url} target="_blank" rel="noopener noreferrer" className={`${sponsor.bgClass} flex items-center justify-center rounded-lg p-2`}>
                 {sponsor.icon ? (
                   <img
                     src={sponsor.icon}
                     alt={`${sponsor.name} logo`}
-                    className="max-h-full max-w-full object-contain"
+                    className="h-12 sm:h-14 md:h-16 w-auto object-contain"
+                    style={sponsor.scale ? { transform: `scale(${sponsor.scale})` } : undefined}
                   />
                 ) : (
                   <span className="font-mono text-white/30 text-sm px-8">{sponsor.name}</span>
@@ -538,12 +539,12 @@ export function SponsorsSection() {
               transition={{ delay: index * 0.1 }}
               whileHover={{ scale: 1.1 }}
             >
-              <a href={sponsor.url} target="_blank" rel="noopener noreferrer" className={`h-12 sm:h-14 max-w-[180px] sm:max-w-[200px] ${sponsor.bgClass} flex items-center justify-center overflow-hidden rounded-lg p-1`}>
+              <a href={sponsor.url} target="_blank" rel="noopener noreferrer" className={`${sponsor.bgClass} flex items-center justify-center rounded-lg p-1`}>
                 {sponsor.icon ? (
                   <img
                     src={sponsor.icon}
                     alt={`${sponsor.name} logo`}
-                    className={`max-h-full max-w-full object-contain${sponsor.invert ? ' invert' : ''}`}
+                    className={`h-6 sm:h-7 md:h-8 w-auto object-contain${sponsor.invert ? ' invert' : ''}`}
                   />
                 ) : (
                   <span className="font-mono text-white/30 text-sm px-6">{sponsor.name}</span>
@@ -573,12 +574,12 @@ export function SponsorsSection() {
               transition={{ delay: index * 0.1 }}
               whileHover={{ scale: 1.1 }}
             >
-              <div className={`h-10 sm:h-12 max-w-[140px] sm:max-w-none ${sponsor.bgClass} flex items-center justify-center overflow-hidden rounded-lg px-2`}>
+              <div className={`${sponsor.bgClass} flex items-center justify-center rounded-lg px-2`}>
                 {sponsor.icon ? (
                   <img
                     src={sponsor.icon}
                     alt={`${sponsor.name} logo`}
-                    className="h-full object-contain"
+                    className="h-8 sm:h-9 md:h-10 w-auto object-contain"
                   />
                 ) : (
                   <span className="font-mono text-white/30 text-xs px-4">{sponsor.name}</span>
