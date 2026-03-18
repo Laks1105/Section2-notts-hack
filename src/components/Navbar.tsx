@@ -100,7 +100,9 @@ export default function Navbar() {
           {/* Right — Register CTA (visible only when scrolled) */}
           <div style={{ justifySelf: 'end' }}>
             <motion.a
-              href="#register"
+              href="https://www.hackquest.io/hackathons/NottsHack-26"
+              target="_blank"
+              rel="noopener noreferrer"
               className="font-pixel text-[9px] tracking-widest px-8 rounded-full border-2 whitespace-nowrap"
               style={{ borderColor: '#5CE6A0', color: '#5CE6A0', pointerEvents: scrolled ? 'auto' : 'none', padding: '8px 24px', lineHeight: 1 }}
               animate={{
@@ -189,7 +191,9 @@ export default function Navbar() {
                 {/* Register button */}
                 <div className="px-6 pt-4 pb-4">
                   <a
-                    href="#register"
+                    href="https://www.hackquest.io/hackathons/NottsHack-26"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="block text-center font-pixel text-[10px] tracking-widest py-3.5 min-h-[48px] flex items-center justify-center rounded-full border-2"
                     style={{ borderColor: '#5CE6A0', color: '#5CE6A0' }}
                     onClick={() => setMobileOpen(false)}
