@@ -465,6 +465,7 @@ export function SponsorsSection() {
   const diamondSponsors = [
     { name: 'DCAI', icon: '/DCAI_white.png', bgClass: '', url: 'https://dcai.ai/', scale: 1.15 }, // compensate for untrimmed whitespace in logo
     { name: 'BGA', icon: '/BGA Logo -  (coloured).PNG', bgClass: '', url: 'https://chainforgood.org/' },
+    { name: 'Dash', icon: '/dash.svg', bgClass: '', url: 'https://www.dash.org/' },
   ];
 
   const platinumSponsors = [
