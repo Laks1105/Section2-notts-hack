@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { Video } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface TimelineEvent {
@@ -9,6 +10,7 @@ interface TimelineEvent {
   venue?: string;
   highlight?: boolean;
   logo?: string;
+  link?: string;
 }
 
 interface TimelinePhase {
@@ -34,8 +36,8 @@ const phases: TimelinePhase[] = [
     tag: 'HYBRID',
     tagColor: '#FFE66D',
     events: [
-      { time: '24 March · 18:00—20:00', title: 'What is, and how to win any hackathon (and become rich before you graduate)', venue: 'F3B04', logo: '/CCACCLogo.svg' },
-      { time: '25 March · 16:00—17:30', title: 'Building on Decentralized AI Infrastructure with DCAI', venue: 'F4B09b', logo: '/DCAI_white.png' },
+      { time: '24 March · 18:00—20:00', title: 'What is, and how to win any hackathon (and become rich before you graduate)', venue: 'F3B04', logo: '/CCACCLogo.svg', link: 'https://meet.google.com/jgp-dovd-jbu' },
+      { time: '25 March · 16:00—17:30', title: 'Building on Decentralized AI Infrastructure with DCAI', venue: 'F4B09b', logo: '/DCAI_white.png', link: 'https://meet.google.com/brc-pyvq-xhk' },
     ],
   },
   {
@@ -185,14 +187,24 @@ export default function TimelineSection() {
                       >
                         {event.title}
                       </p>
-                      {event.venue && (
-                        <span className="font-mono text-xs text-white/40 mt-1 flex items-center gap-1.5">
-                          <svg className="w-3 h-3 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                            <circle cx="12" cy="10" r="3" />
-                          </svg>
-                          {event.venue}
-                        </span>
+                      {(event.venue || event.link) && (
+                        <div className="flex items-center gap-3 mt-1 flex-wrap">
+                          {event.venue && (
+                            <span className="font-mono text-xs text-white/40 flex items-center gap-1.5">
+                              <svg className="w-3 h-3 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                              </svg>
+                              {event.venue}
+                            </span>
+                          )}
+                          {event.link && (
+                            <a href={event.link} target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-[#5CE6A0]/70 hover:text-[#5CE6A0] flex items-center gap-1.5 transition-colors">
+                              <Video className="w-3 h-3 shrink-0" />
+                              Google Meet
+                            </a>
+                          )}
+                        </div>
                       )}
                     </div>
                   </motion.div>
