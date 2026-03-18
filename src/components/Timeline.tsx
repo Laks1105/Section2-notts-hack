@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 interface TimelineEvent {
@@ -7,6 +8,7 @@ interface TimelineEvent {
   title: string;
   venue?: string;
   highlight?: boolean;
+  logo?: string;
 }
 
 interface TimelinePhase {
@@ -24,10 +26,8 @@ const phases: TimelinePhase[] = [
     tag: 'HYBRID',
     tagColor: '#FFE66D',
     events: [
-      { time: '24 Mar', title: 'Introduction to Hackathons by CCACC', venue: 'F1A02' },
-      { time: '25 Mar', title: 'DCAI Workshop', venue: 'F1A02' },
-      { time: '26 Mar', title: 'Workshop (TBD)', venue: 'F1A02' },
-      { time: '31 Mar – 1 Apr', title: 'Workshop (TBD)', venue: 'F1A02' },
+      { time: '24 March · 18:00—20:00', title: 'What is, and how to win any hackathon (and become rich before you graduate)', venue: 'F3B04', logo: '/CCACCLogo.svg' },
+      { time: '25 March · 16:00—17:30', title: 'Building on Decentralized AI Infrastructure with DCAI', venue: 'F4B09b', logo: '/DCAI_white.png' },
     ],
   },
   {
@@ -158,10 +158,15 @@ export default function TimelineSection() {
                       ${event.highlight ? 'bg-white/[0.04]' : ''}
                     `}
                   >
-                    {/* Time */}
-                    <span className="font-mono text-[10px] sm:text-xs text-[#B8AEC9] w-20 sm:w-28 shrink-0 pt-[2px] tabular-nums">
-                      {event.time}
-                    </span>
+                    {/* Time & Logo */}
+                    <div className="w-20 sm:w-28 shrink-0">
+                      <span className="font-mono text-xs sm:text-sm text-[#B8AEC9] tabular-nums leading-snug block">
+                        {event.time}
+                      </span>
+                      {event.logo && (
+                        <Image src={event.logo} alt="" width={72} height={24} className="mt-1.5 object-contain opacity-70" />
+                      )}
+                    </div>
 
                     {/* Content */}
                     <div className="flex-1 min-w-0">
@@ -173,7 +178,11 @@ export default function TimelineSection() {
                         {event.title}
                       </p>
                       {event.venue && (
-                        <span className="font-mono text-xs text-white/40 mt-1 block">
+                        <span className="font-mono text-xs text-white/40 mt-1 flex items-center gap-1.5">
+                          <svg className="w-3 h-3 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                          </svg>
                           {event.venue}
                         </span>
                       )}
