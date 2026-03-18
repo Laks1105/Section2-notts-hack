@@ -1,10 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 
-
-
-const faqs = [
+const faqs: { q: string; a: ReactNode }[] = [
   {
     q: 'What is NottsHack 2026?',
     a: 'NottsHack 2026 is a blockchain-themed student hackathon where participants build innovative decentralized solutions, learn new skills, and connect with other developers through workshops, mentorship, and competition.',
@@ -14,7 +12,7 @@ const faqs = [
   },
   {
     q: 'Can I join without a team?',
-    a: 'No, all participants must be part of a team.',
+    a: <>No, you&apos;ll need to be in a team to participate. Don&apos;t worry if you don&apos;t have one yet—we can help match you with others! Simply register via <a href="https://forms.office.com/r/01GRNnNAZX" target="_blank" rel="noopener noreferrer" className="text-pink-400 underline hover:text-pink-300">this link</a>.</>,
   },
   {
     q: 'Who is organising this event?',
