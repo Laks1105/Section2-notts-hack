@@ -16,7 +16,7 @@ const fadeInUp = {
 };
 
 export function AboutSection() {
-  const hackathonStart = new Date('2026-04-06T00:00:00');
+  const registrationClose = new Date('2026-03-31T23:59:00');
   const highlights = [
     { icon: <CalendarDays className="w-7 h-7" />, label: '6 Days', detail: 'of hacking', color: '#FF4DA6' },
     { icon: <Users className="w-7 h-7" />, label: '3-5 People', detail: 'per team', color: '#5CE6A0' },
@@ -81,8 +81,8 @@ export function AboutSection() {
         </div>
 
         <div className="mt-6 mb-6 md:mt-8 md:mb-8">
-          <p className="text-center text-white/80 mb-3 md:mb-4 font-mono text-sm sm:text-base">Countdown to Hacking</p>
-          <CountdownTimer targetDate={hackathonStart} />
+          <p className="text-center text-white/80 mb-3 md:mb-4 font-mono text-sm sm:text-base">Registration Closes In</p>
+          <CountdownTimer targetDate={registrationClose} />
         </div>
 
         {/* Event format breakdown */}

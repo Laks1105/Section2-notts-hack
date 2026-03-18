@@ -28,7 +28,7 @@ const faqs: { q: string; a: ReactNode }[] = [
   },
   {
     q: 'When is the deadline for registration?',
-    a: 'Registration will close around March 2026. The exact date will be announced soon.',
+    a: 'Registration closes on 31 March 2026 at 23:59.',
   },
   {
     q: 'Is this an in-person or online hackathon?',

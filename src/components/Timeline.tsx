@@ -21,8 +21,16 @@ interface TimelinePhase {
 
 const phases: TimelinePhase[] = [
   {
+    label: 'REGISTRATION DEADLINE',
+    date: 'March 31',
+    tagColor: '#FF6B6B',
+    events: [
+      { time: '23:59', title: 'Registration Closes', highlight: true },
+    ],
+  },
+  {
     label: 'PRE-HACKATHON WORKSHOPS',
-    date: 'March 2026',
+    date: '',
     tag: 'HYBRID',
     tagColor: '#FFE66D',
     events: [
