@@ -18,6 +18,7 @@ interface TimelinePhase {
   date: string;
   tag?: string;
   tagColor?: string;
+  description?: string;
   events: TimelineEvent[];
 }
 
@@ -35,9 +36,10 @@ const phases: TimelinePhase[] = [
     date: '',
     tag: 'HYBRID',
     tagColor: '#FFE66D',
+    description: 'Workshops will be conducted physically on University of Nottingham Malaysia campus. Participants from other universities can join online via Google Meet',
     events: [
-      { time: '24 March · 18:00—20:00', title: 'What is, and how to win any hackathon (and become rich before you graduate)', venue: 'F3B04', logo: '/CCACCLogo.svg', link: 'https://meet.google.com/jgp-dovd-jbu' },
-      { time: '25 March · 16:00—17:30', title: 'Building on Decentralized AI Infrastructure with DCAI', venue: 'F4B09b', logo: '/DCAI_white.png', link: 'https://meet.google.com/brc-pyvq-xhk' },
+      { time: '24 March 18:00—20:00', title: 'What is, and how to win any hackathon (and become rich before you graduate)', venue: 'F3B04', logo: '/CCACCLogo.svg', link: 'https://meet.google.com/jgp-dovd-jbu' },
+      { time: '25 March 16:00—17:30', title: 'Building on Decentralized AI Infrastructure with DCAI', venue: 'F4B09b', logo: '/DCAI_white.png', link: 'https://meet.google.com/brc-pyvq-xhk' },
     ],
   },
   {
@@ -146,6 +148,13 @@ export default function TimelineSection() {
                   </span>
                 )}
               </div>
+
+              {/* Description */}
+              {phase.description && (
+                <p className="font-mono text-xs text-white/50 mb-4">
+                  {phase.description}
+                </p>
+              )}
 
               {/* Divider */}
               <div
