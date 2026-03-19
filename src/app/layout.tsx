@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
@@ -90,6 +91,7 @@ export default function RootLayout({
       <body className="antialiased">
         <Navbar />
         {children}
+        <Analytics />
       </body>
     </html>
   );
