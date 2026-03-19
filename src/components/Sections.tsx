@@ -20,7 +20,7 @@ export function AboutSection() {
   const highlights = [
     { icon: <CalendarDays className="w-7 h-7" />, label: '6 Days', detail: 'of hacking', color: '#FF4DA6' },
     { icon: <Users className="w-7 h-7" />, label: '3-5 People', detail: 'per team', color: '#5CE6A0' },
-    { icon: <Trophy className="w-7 h-7" />, label: '$1800+', detail: 'in prizes', color: '#FF4DA6' },
+    { icon: <Trophy className="w-7 h-7" />, label: '$2300+', detail: 'in prizes', color: '#FF4DA6' },
     { icon: <UtensilsCrossed className="w-7 h-7" />, label: 'Meals', detail: 'provided on-site', color: '#5CE6A0' },
   ];
 
@@ -276,11 +276,11 @@ export function TracksSection() {
         ],
         requirement:
           "Must integrate at least one interaction with the L3 network (API, data access, or ecosystem interaction).",
-        prize: "Total Prize Pool: 300 USDT",
+        prize: "Total Prize Pool: 800 USDT",
         prizeBreakdown: [
-          { place: "1st Place", amount: "150 USDT" },
-          { place: "2nd Place", amount: "100 USDT" },
-          { place: "3rd Place", amount: "50 USDT" },
+          { place: "1st Place", amount: "500 USDT" },
+          { place: "2nd Place", amount: "200 USDT" },
+          { place: "3rd Place", amount: "100 USDT" },
         ],
       },
     },
