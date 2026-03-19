@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Video } from 'lucide-react';
+import { Video, ClipboardList } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface TimelineEvent {
@@ -11,6 +11,7 @@ interface TimelineEvent {
   highlight?: boolean;
   logo?: string;
   link?: string;
+  rsvpLink?: string;
 }
 
 interface TimelinePhase {
@@ -38,8 +39,8 @@ const phases: TimelinePhase[] = [
     tagColor: '#FFE66D',
     description: 'Workshops will be conducted physically on University of Nottingham Malaysia campus. Participants from other universities can join online via Google Meet',
     events: [
-      { time: '24 March 18:00—20:00', title: 'What is, and how to win any hackathon (and become rich before you graduate)', venue: 'F3B04', logo: '/CCACCLogo.svg', link: 'https://meet.google.com/jgp-dovd-jbu' },
-      { time: '25 March 16:00—17:30', title: 'Building on Decentralized AI Infrastructure with DCAI', venue: 'F4B09b', logo: '/DCAI_white.png', link: 'https://meet.google.com/brc-pyvq-xhk' },
+      { time: '24 March 18:00—20:00', title: 'What is, and how to win any hackathon (and become rich before you graduate)', venue: 'F3B04', logo: '/CCACCLogo.svg', link: 'https://meet.google.com/jgp-dovd-jbu', rsvpLink: 'https://forms.office.com/r/2gddxCcNhi' },
+      { time: '25 March 16:00—17:30', title: 'Building on Decentralized AI Infrastructure with DCAI', venue: 'F4B09b', logo: '/DCAI_white.png', link: 'https://meet.google.com/brc-pyvq-xhk', rsvpLink: 'https://forms.office.com/r/2gddxCcNhi' },
     ],
   },
   {
@@ -211,6 +212,12 @@ export default function TimelineSection() {
                             <a href={event.link} target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-[#5CE6A0]/70 hover:text-[#5CE6A0] flex items-center gap-1.5 transition-colors">
                               <Video className="w-3 h-3 shrink-0" />
                               Google Meet
+                            </a>
+                          )}
+                          {event.rsvpLink && (
+                            <a href={event.rsvpLink} target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-[#FFE66D]/70 hover:text-[#FFE66D] flex items-center gap-1.5 transition-colors">
+                              <ClipboardList className="w-3 h-3 shrink-0" />
+                              RSVP (Physical)
                             </a>
                           )}
                         </div>
