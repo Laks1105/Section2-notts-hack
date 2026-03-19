@@ -20,7 +20,7 @@ export function AboutSection() {
   const highlights = [
     { icon: <CalendarDays className="w-7 h-7" />, label: '6 Days', detail: 'of hacking', color: '#FF4DA6' },
     { icon: <Users className="w-7 h-7" />, label: '3-5 People', detail: 'per team', color: '#5CE6A0' },
-    { icon: <Trophy className="w-7 h-7" />, label: '$3300+', detail: 'in prizes', color: '#FF4DA6' },
+    { icon: <Trophy className="w-7 h-7" />, label: 'RM13000+', detail: 'in prizes', color: '#FF4DA6' },
     { icon: <UtensilsCrossed className="w-7 h-7" />, label: 'Meals', detail: 'provided on-site', color: '#5CE6A0' },
   ];
 
