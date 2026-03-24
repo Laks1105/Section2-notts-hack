@@ -399,8 +399,6 @@ export function TracksSection() {
             </div>
 
 
-            {!activeTrack.comingSoon && (
-              <>
                 {/* DIVIDER */}
 
                 <div className="w-full h-px bg-white/10 mb-6" />
@@ -455,8 +453,6 @@ export function TracksSection() {
                   </p>
 
                 )}
-              </>
-            )}
 
             {/* BGA LINK */}
             {activeTrack.details.link && (
