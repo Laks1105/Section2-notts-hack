@@ -399,60 +399,60 @@ export function TracksSection() {
             </div>
 
 
-                {/* DIVIDER */}
+            {/* DIVIDER */}
 
-                <div className="w-full h-px bg-white/10 mb-6" />
-
-
-                {/* ORGANISER */}
-
-                <p className="font-mono text-sm text-white/70 mb-2">
-                  <span className="text-white">Organiser:</span>{" "}
-                  {activeTrack.details.organiser}
-                </p>
+            <div className="w-full h-px bg-white/10 mb-6" />
 
 
-                {/* THEME */}
+            {/* ORGANISER */}
 
-                <p className="font-mono text-sm text-white/70 mb-6">
-                  <span className="text-white">Theme:</span>{" "}
-                  {activeTrack.details.theme}
-                </p>
+            <p className="font-mono text-sm text-white/70 mb-2">
+              <span className="text-white">Organiser:</span>{" "}
+              {activeTrack.details.organiser}
+            </p>
 
 
-                {/* PROJECT TYPES */}
+            {/* THEME */}
 
-                <div>
+            <p className="font-mono text-sm text-white/70 mb-6">
+              <span className="text-white">Theme:</span>{" "}
+              {activeTrack.details.theme}
+            </p>
 
-                  <p className="font-pixel text-xs text-white/70 mb-3">
-                    Project Types:
-                  </p>
 
-                  <ul className="font-mono text-sm text-white/80 space-y-2">
+            {/* PROJECT TYPES */}
 
-                    {activeTrack.details.focus.map((item, i) => (
+            <div>
 
-                      <li key={i} className="flex gap-2 items-start">
-                        <span style={{ color: activeTrack.color }}>•</span>
-                        {item}
-                      </li>
+              <p className="font-pixel text-xs text-white/70 mb-3">
+                Project Types:
+              </p>
 
-                    ))}
+              <ul className="font-mono text-sm text-white/80 space-y-2">
 
-                  </ul>
+                {activeTrack.details.focus.map((item, i) => (
 
-                </div>
+                  <li key={i} className="flex gap-2 items-start">
+                    <span style={{ color: activeTrack.color }}>•</span>
+                    {item}
+                  </li>
 
-                {/* REQUIREMENT */}
+                ))}
 
-                {activeTrack.details.requirement && (
+              </ul>
 
-                  <p className="font-mono text-sm text-white/70 mt-6">
-                    <span className="text-white">Requirement:</span>{" "}
-                    {activeTrack.details.requirement}
-                  </p>
+            </div>
 
-                )}
+            {/* REQUIREMENT */}
+
+            {activeTrack.details.requirement && (
+
+              <p className="font-mono text-sm text-white/70 mt-6">
+                <span className="text-white">Requirement:</span>{" "}
+                {activeTrack.details.requirement}
+              </p>
+
+            )}
 
             {/* BGA LINK */}
             {activeTrack.details.link && (
@@ -501,6 +501,7 @@ export function SponsorsSection() {
     { name: 'School of Computer and Mathematical Sciences', icon: '/unm_logo.png', bgClass: '', url: 'https://www.nottingham.edu.my/' },
     { name: 'TechFlame', icon: '/techflame.png', bgClass: '', url: 'https://www.techflame.com/' },
     { name: 'PANews', icon: '/PANews_white.png', bgClass: '', url: 'https://www.panewslab.com/' },
+    { name: 'RightUp', icon: '/RightUp-logo.png', bgClass: '', url: 'https://beta.rightup.fun' },
   ];
 
   return (
