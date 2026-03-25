@@ -501,7 +501,7 @@ export function SponsorsSection() {
     { name: 'School of Computer and Mathematical Sciences', icon: '/unm_logo.png', bgClass: '', url: 'https://www.nottingham.edu.my/' },
     { name: 'TechFlame', icon: '/techflame.png', bgClass: '', url: 'https://www.techflame.com/' },
     { name: 'PANews', icon: '/PANews_white.png', bgClass: '', url: 'https://www.panewslab.com/' },
-    { name: 'RightUp', icon: '/rightup-1.png', bgClass: '', url: 'https://beta.rightup.fun' },
+    { name: 'RightUp', icon: '/rightup.png', bgClass: '', url: 'https://beta.rightup.fun' },
   ];
 
   return (
