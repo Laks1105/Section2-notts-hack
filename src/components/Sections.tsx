@@ -302,6 +302,11 @@ export function TracksSection() {
         requirement:
           "Working prototype or demo, clear use case and value, integration with Dash (payments or platform), final presentation",
         prize: "Total Prize Pool: 1,000 USDT",
+        prizeBreakdown: [
+          { place: "1st Place", amount: "500 USDT" },
+          { place: "2nd Place", amount: "300 USDT" },
+          { place: "3rd Place", amount: "200 USDT" },
+        ],
       },
     },
   ];
@@ -506,7 +511,7 @@ export function SponsorsSection() {
     { name: 'HackQuest', icon: '/hackquest-logo-white.png', bgClass: '', invert: false, url: 'https://www.hackquest.io/' },
   ];
 
-  const communitySponsors = [
+  const communitySponsors: Sponsor[] = [
     { name: 'SA UNMC', icon: '/sa_logo.png', bgClass: '', url: 'https://www.instagram.com/saunmalaysia/?hl=en' },
     { name: 'School of Computer and Mathematical Sciences', icon: '/unm_logo.png', bgClass: '', url: 'https://www.nottingham.edu.my/' },
     { name: 'TechFlame', icon: '/techflame.png', bgClass: '', url: 'https://www.techflame.com/' },
