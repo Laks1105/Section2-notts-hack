@@ -482,17 +482,27 @@ export function TracksSection() {
 
 
 export function SponsorsSection() {
-  const diamondSponsors = [
+  type Sponsor = {
+    name: string;
+    icon: string;
+    bgClass: string;
+    url: string;
+    invert?: boolean;
+    scale?: number;
+    scaleClass?: string;
+  };
+
+  const diamondSponsors: Sponsor[] = [
     { name: 'DCAI', icon: '/DCAI_white.png', bgClass: '', url: 'https://dcai.ai/', scale: 1.15 }, // compensate for untrimmed whitespace in logo
     { name: 'BGA', icon: '/BGA Logo -  (coloured).PNG', bgClass: '', url: 'https://chainforgood.org/' },
     { name: 'Dash', icon: '/dash.svg', bgClass: '', url: 'https://www.dash.org/' },
   ];
 
-  const platinumSponsors = [
+  const platinumSponsors: Sponsor[] = [
     { name: 'Base', icon: '/base-logo-white.svg', bgClass: '', url: 'https://www.base.org/' },
   ];
 
-  const goldSponsors = [
+  const goldSponsors: Sponsor[] = [
     { name: 'HackQuest', icon: '/hackquest-logo-white.png', bgClass: '', invert: false, url: 'https://www.hackquest.io/' },
   ];
 
