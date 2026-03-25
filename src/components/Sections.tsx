@@ -501,7 +501,7 @@ export function SponsorsSection() {
     { name: 'School of Computer and Mathematical Sciences', icon: '/unm_logo.png', bgClass: '', url: 'https://www.nottingham.edu.my/' },
     { name: 'TechFlame', icon: '/techflame.png', bgClass: '', url: 'https://www.techflame.com/' },
     { name: 'PANews', icon: '/PANews_white.png', bgClass: '', url: 'https://www.panewslab.com/' },
-    { name: 'RightUp', icon: '/rightup.png', bgClass: '', url: 'https://beta.rightup.fun' },
+    { name: 'RightUp', icon: '/rightup.png', bgClass: '', url: 'https://beta.rightup.fun', scale: 1.2 },
   ];
 
   return (
@@ -648,6 +648,7 @@ export function SponsorsSection() {
                     src={sponsor.icon}
                     alt={`${sponsor.name} logo`}
                     className="h-5 sm:h-6 md:h-7 w-auto object-contain"
+                    style={sponsor.scale ? { transform: `scale(${sponsor.scale})` } : undefined}
                   />
                 ) : (
                   <span className="font-mono text-white/30 text-xs px-4">{sponsor.name}</span>
