@@ -41,6 +41,7 @@ const phases: TimelinePhase[] = [
     events: [
       { time: '24 March 18:00—20:00', title: 'What is, and how to win any hackathon (and become rich before you graduate)', venue: 'F3B04', logo: '/CCACCLogo.svg', link: 'https://meet.google.com/jgp-dovd-jbu', rsvpLink: 'https://forms.office.com/r/2gddxCcNhi' },
       { time: '25 March 16:00—17:30', title: 'Building on Decentralized AI Infrastructure with DCAI', venue: 'F4B09b', logo: '/DCAI_white.png', link: 'https://meet.google.com/brc-pyvq-xhk', rsvpLink: 'https://forms.office.com/r/2gddxCcNhi' },
+      { time: '2 April 19:00', title: 'Web3 Applications on Dash Platform', venue: 'Online', logo: '/dash.svg', link: 'https://meet.google.com/xcr-rbny-ppd' },
     ],
   },
   {
