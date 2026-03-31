@@ -11,6 +11,7 @@ interface TimelineEvent {
   highlight?: boolean;
   logo?: string;
   link?: string;
+  linkLabel?: string;
   rsvpLink?: string;
 }
 
@@ -40,7 +41,7 @@ const phases: TimelinePhase[] = [
     description: 'Workshops will be conducted physically on University of Nottingham Malaysia campus. Participants from other universities can join online via Google Meet',
     events: [
       { time: '24 March 18:00—20:00', title: 'What is, and how to win any hackathon (and become rich before you graduate)', venue: 'F3B04', logo: '/CCACCLogo.svg', link: 'https://meet.google.com/jgp-dovd-jbu', rsvpLink: 'https://forms.office.com/r/2gddxCcNhi' },
-      { time: '25 March 16:00—17:30', title: 'Building on Decentralized AI Infrastructure with DCAI', venue: 'F4B09b', logo: '/DCAI_white.png', link: 'https://meet.google.com/brc-pyvq-xhk', rsvpLink: 'https://forms.office.com/r/2gddxCcNhi' },
+      { time: '25 March 16:00—17:30', title: 'Building on Decentralized AI Infrastructure with DCAI', venue: 'F4B09b', logo: '/DCAI_white.png', link: 'https://drive.google.com/file/d/1RaLPLlUF3XHgMXGRFNLHePnm7dJayp_N/view?usp=drivesdk', linkLabel: 'Recording', rsvpLink: 'https://forms.office.com/r/2gddxCcNhi' },
       { time: '2 April 19:00', title: 'Web3 Applications on Dash Platform', venue: 'Online', logo: '/dash.svg', link: 'https://meet.google.com/xcr-rbny-ppd' },
     ],
   },
@@ -212,7 +213,7 @@ export default function TimelineSection() {
                           {event.link && (
                             <a href={event.link} target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-[#5CE6A0]/70 hover:text-[#5CE6A0] flex items-center gap-1.5 transition-colors">
                               <Video className="w-3 h-3 shrink-0" />
-                              Google Meet
+                              {event.linkLabel ?? 'Google Meet'}
                             </a>
                           )}
                           {event.rsvpLink && (
