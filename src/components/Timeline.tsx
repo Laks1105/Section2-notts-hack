@@ -21,6 +21,8 @@ interface TimelinePhase {
   tag?: string;
   tagColor?: string;
   description?: string;
+  link?: string;
+  linkLabel?: string;
   events: TimelineEvent[];
 }
 
@@ -50,12 +52,13 @@ const phases: TimelinePhase[] = [
     date: 'April 6',
     tag: 'ONLINE',
     tagColor: '#FF4DA6',
+    link: 'https://meet.google.com/gbw-hyyv-rsk',
     events: [
-      { time: '19:00-19:10', title: 'Introduction', venue: 'Online' },
-      { time: '19:10-19:20', title: 'Sponsor Speeches', venue: 'Online' },
-      { time: '19:20-19:30', title: 'Participant Rules Briefing', venue: 'Online' },
-      { time: '19:30-20:00', title: 'Track Explanation', venue: 'Online' },
-      { time: '20:00-20:30', title: 'Q&A & Closing Remarks', venue: 'Online' },
+      { time: '19:00-19:10', title: 'Introduction' },
+      { time: '19:10-19:20', title: 'Sponsor Speeches' },
+      { time: '19:20-19:30', title: 'Participant Rules Briefing' },
+      { time: '19:30-20:00', title: 'Track Explanation' },
+      { time: '20:00-20:30', title: 'Q&A & Closing Remarks' },
       { time: '20:30', title: 'Start of Online Hacking', highlight: true },
     ],
   },
@@ -161,6 +164,19 @@ export default function TimelineSection() {
                 <p className="font-mono text-xs text-white/50 mb-4">
                   {phase.description}
                 </p>
+              )}
+              {phase.link && (
+                <div className="mb-4">
+                  <a
+                    href={phase.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-mono text-xs text-[#5CE6A0]/80 hover:text-[#5CE6A0] inline-flex items-center gap-1.5 transition-colors"
+                  >
+                    <Video className="w-3 h-3 shrink-0" />
+                    {phase.linkLabel ?? 'Google Meet'}
+                  </a>
+                </div>
               )}
 
               {/* Divider */}
